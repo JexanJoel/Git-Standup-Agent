@@ -1,20 +1,41 @@
 spec_version: "0.1.0"
 name: git-standup-agent
-version: 0.1.0
-description: "Reads your git history and writes human-friendly daily standup reports automatically"
-author: "Your Name"
+version: 0.2.0
+description: "Git-native AI agent that generates standups, roasts commits, tracks streaks, detects bus factor, and more"
+author: "JexanJoel"
 model:
-  preferred: claude-sonnet-4-5-20250929
+  preferred: "groq:llama-3.3-70b-versatile"
+  fallback:
+    - "anthropic:claude-sonnet-4-5-20250929"
+    - "openai:gpt-4o"
   constraints:
     temperature: 0.4
-    max_tokens: 1024
+    max_tokens: 2048
 skills:
   - generate-standup
   - weekly-summary
+  - roast-mode
+  - code-health
+  - commit-suggester
+  - share-output
+  - pr-summary
+  - streak-tracker
+  - auto-changelog
+  - bus-factor
 tools:
   - git-log
+runtime:
+  max_turns: 20
+  timeout: 120
 tags:
   - productivity
   - git
   - developer-tools
   - standup
+  - code-health
+  - changelog
+  - bus-factor
+  - hackathon
+metadata:
+  homepage: "https://github.com/JexanJoel/Git-Standup-Agent"
+  demo: "node index.js"
