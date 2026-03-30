@@ -189,12 +189,12 @@ model:
 <div align="center">
 
 | Technology | Purpose |
-|---|---|
-| [gitagent](https://github.com/open-gitagent/gitagent) | Git-native agent standard |
-| [Groq](https://groq.com) | LLM inference (free tier) |
-| [llama-3.3-70b-versatile](https://groq.com/models) | The model powering the agent |
-| [gitclaw](https://github.com/open-gitagent/gitclaw) | Agent runtime SDK |
-| Node.js | Runtime environment |
+|:---:|:---|
+| [![gitagent](https://img.shields.io/badge/gitagent-534AB7?style=for-the-badge)](https://github.com/open-gitagent/gitagent) | Git-native agent standard |
+| [![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com) | LLM inference (free tier) |
+| [![llama-3.3-70b](https://img.shields.io/badge/llama--3.3--70b--versatile-0F6E56?style=for-the-badge)](https://groq.com/models) | The model powering the agent |
+| [![gitclaw](https://img.shields.io/badge/gitclaw-185FA5?style=for-the-badge)](https://github.com/open-gitagent/gitclaw) | Agent runtime SDK |
+| [![Node.js](https://img.shields.io/badge/Node.js-3B6D11?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org) | Runtime environment |
 
 </div>
 
