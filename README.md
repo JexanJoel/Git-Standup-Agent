@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>🤖 Git-Standup-Agent</h1>
+<h1>🤖 Git Standup Agent</h1>
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
