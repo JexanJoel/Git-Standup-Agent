@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+import Groq from "groq-sdk";
 import { config } from "dotenv";
 import { execSync } from "child_process";
 import { readFileSync, writeFileSync } from "fs";
@@ -8,17 +8,14 @@ config();
 
 console.log("🚀 Starting git-standup-agent...");
 
-if (!process.env.OPENROUTER_API_KEY) {
-  console.error("❌ OPENROUTER_API_KEY not found in .env file!");
+if (!process.env.GROQ_API_KEY) {
+  console.error("❌ GROQ_API_KEY not found in .env file!");
   process.exit(1);
 }
 
 console.log("✅ API key loaded");
 
-const client = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY,
-});
+const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 function getGitLog(since = "24 hours ago") {
   try {
@@ -45,9 +42,9 @@ function loadAgentIdentity() {
   }
 }
 
-async function askClaude(systemPrompt, userMessage) {
+async function askAgent(systemPrompt, userMessage) {
   const response = await client.chat.completions.create({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
+    model: "llama-3.3-70b-versatile",
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userMessage },
@@ -81,14 +78,16 @@ async function main() {
     }
 
     const isWeekly = input.toLowerCase().includes("week");
-    const gitLog = isWeekly ? getGitLog("7 days ago") : getGitLog("24 hours ago");
+    const gitLog = isWeekly
+      ? getGitLog("7 days ago")
+      : getGitLog("24 hours ago");
 
     const userMessage = `${input}\n\nCurrent git log:\n${gitLog}`;
 
     console.log("\n⏳ Thinking...\n");
 
     try {
-      const reply = await askClaude(systemPrompt, userMessage);
+      const reply = await askAgent(systemPrompt, userMessage);
       console.log("🤖 Agent:\n");
       console.log(reply);
       console.log("\n");
