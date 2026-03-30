@@ -192,7 +192,6 @@ model:
 |:---:|:---|
 | [![gitagent](https://img.shields.io/badge/gitagent-534AB7?style=for-the-badge)](https://github.com/open-gitagent/gitagent) | Git-native agent standard |
 | [![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com) | LLM inference (free tier) |
-| [![llama-3.3-70b](https://img.shields.io/badge/llama--3.3--70b--versatile-0F6E56?style=for-the-badge)](https://groq.com/models) | The model powering the agent |
 | [![gitclaw](https://img.shields.io/badge/gitclaw-185FA5?style=for-the-badge)](https://github.com/open-gitagent/gitclaw) | Agent runtime SDK |
 | [![Node.js](https://img.shields.io/badge/Node.js-3B6D11?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org) | Runtime environment |
 
@@ -218,8 +217,10 @@ Contributions, issues, and feature requests are welcome! See [CONTRIBUTING.md](C
 
 <div align="center">
 
-Built for the **[GitAgent Hackathon 2026](https://hackculture.in)** 🏆
+Built for the&nbsp;
+[![GitAgent Hackathon 2026](https://img.shields.io/badge/GitAgent_Hackathon_2026_🏆-6366f1?style=for-the-badge)](https://hackculture.in)
 
-*Powered by the [gitagent open standard](https://github.com/open-gitagent/gitagent)*
+Powered by the&nbsp;
+[![gitagent open standard](https://img.shields.io/badge/gitagent_open_standard-534AB7?style=flat-square)](https://github.com/open-gitagent/gitagent)
 
 </div>
