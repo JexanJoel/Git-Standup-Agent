@@ -94,8 +94,6 @@ function getStreakData() {
   }
 }
 
-// ─── Agent Identity ───────────────────────────────────────────────────────────
-
 function loadAgentIdentity() {
   try {
     const soul = readFileSync("SOUL.md", "utf8");
