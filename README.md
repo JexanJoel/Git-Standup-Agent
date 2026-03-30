@@ -78,8 +78,6 @@ node index.js
 
 ### Usage
 
-<div align="center">
-
 ## 🤖 git-standup-agent
 
 | Command | Description |
@@ -96,8 +94,6 @@ node index.js
 | `bus factor` | Knowledge risk analysis 🚨 |
 | `help` | Show this menu |
 | `exit` | Quit |
-
-</div>
 
 ```
 You: standup
@@ -167,8 +163,6 @@ Expected output:
 
 ## 🏗️ How It Works
 
-<div align="center">
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    git-standup-agent                        │
@@ -199,8 +193,6 @@ Expected output:
 2. **Git context** is pulled live using `git log` for the relevant time range
 3. **Groq LLM** processes the identity + context and generates the output
 4. **Output** is printed to terminal and saved to a `.md` file automatically
-
-</div>
 
 ---
 
@@ -263,8 +255,6 @@ Contributions, issues, and feature requests are welcome!
 <div align="center">
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-
-MIT © [JexanJoel](https://github.com/JexanJoel)
 
 </div>
 
