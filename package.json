@@ -1,0 +1,19 @@
+{
+    "name":  "git-standup-agent",
+    "version":  "1.0.0",
+    "description":  "An AI agent that lives in your git repo and writes your daily standups for you.",
+    "main":  "index.js",
+    "scripts":  {
+                    "test":  "echo \"Error: no test specified\" \u0026\u0026 exit 1"
+                },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "dependencies":  {
+                         "dotenv":  "^17.3.1",
+                         "openai":  "^6.33.0"
+                     },
+    "type":  "module"
+}

@@ -1,0 +1,28 @@
+name: git-log
+description: Reads git commit history for a given time range
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    since:
+      type: string
+      description: Time range e.g. "24 hours ago" or "7 days ago"
+    branch:
+      type: string
+      description: Optional branch name to filter by
+  required: [since]
+output_schema:
+  type: object
+  properties:
+    commits:
+      type: array
+      items:
+        type: object
+        properties:
+          hash: { type: string }
+          message: { type: string }
+          author: { type: string }
+          time: { type: string }
+annotations:
+  read_only: true
+  cost: low
