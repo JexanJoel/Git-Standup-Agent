@@ -1,5 +1,5 @@
 spec_version: "0.1.0"
-name: git-standup-agent
+name: Git-Standup-Agent
 version: 0.2.0
 description: "Git-native AI agent that generates standups, roasts commits, tracks streaks, detects bus factor, and more"
 author: "JexanJoel"
