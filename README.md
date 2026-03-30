@@ -79,7 +79,7 @@ node index.js
 ```
 ---
 
-### Usuage
+### Usage
 
 ## 🤖 Commands
 
