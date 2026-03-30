@@ -27,9 +27,7 @@
 
 ## 🧠 What is this?
 
-`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
-
-No dashboards. No cloud sync. No third-party services. Just clone and run.
+`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence. No dashboards. No cloud sync. No third-party services. Just clone and run.
 
 > *"Stop copying commit hashes into Slack. Let your repo speak for itself."*
 
