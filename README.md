@@ -13,8 +13,6 @@
     <td align="center"><a href="https://your-demo-link.com"><img src="https://img.shields.io/badge/🚀%20Live%20Demo-4f46e5?style=for-the-badge&logoColor=white"/></a></td>
     <td align="center"><a href="https://github.com/JexanJoel/Git-Standup-Agent"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a></td>
     <td align="center"><a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge"/></a></td>
-  </tr>
-  <tr>
     <td align="center"><a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/🤝-Contributing-4f46e5?style=for-the-badge&labelColor=1e1b4b&color=4f46e5"/></a></td>
     <td align="center"><a href="https://hackculture.in"><img src="https://img.shields.io/badge/GitAgent_Hackathon_2026-6366f1?style=for-the-badge"/></a></td>
     <td align="center"><a href="https://github.com/sponsors/JexanJoel"><img src="https://img.shields.io/badge/💖%20Sponsor%20Me-e11d48?style=for-the-badge"/></a></td>
