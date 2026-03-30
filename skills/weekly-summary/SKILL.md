@@ -8,4 +8,4 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-When asked for a weekly summary, run git log for 7 days.
+When asked for a weekly summary, run git log for 7 days...

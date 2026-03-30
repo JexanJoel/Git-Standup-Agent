@@ -8,7 +8,7 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-Look at the recent commits and generate a clear PR description that a non-technical person could understand.
+Look at the recent commits and generate a clear PR description that a non-technical person could understand...
 
 Include:
 - What changed and why

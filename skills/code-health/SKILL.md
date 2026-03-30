@@ -8,7 +8,7 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-Scan the git log and recent diffs for code health signals.
+Scan the git log and recent diffs for code health signals...
 
 Look for:
 - TODO and FIXME comments added in recent commits

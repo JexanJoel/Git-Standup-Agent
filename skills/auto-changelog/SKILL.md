@@ -26,4 +26,4 @@ Format:
 
 ## [older versions...]
 
-Be specific — translate raw commits into user-facing language.
+Be specific — translate raw commits into user-facing language...

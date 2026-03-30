@@ -22,4 +22,4 @@ For Email format:
 - Clean bullet points
 - Sign off with team name
 
-Always output BOTH formats.
+Always output BOTH formats...

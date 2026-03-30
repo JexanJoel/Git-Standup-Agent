@@ -8,4 +8,4 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-When asked to generate a standup report, run git log.
+When asked to generate a standup report, run git log...

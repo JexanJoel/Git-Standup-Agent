@@ -8,7 +8,7 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-Review the last 10 commit messages. For any that are vague, unclear, or don't follow conventional commits format, suggest a rewrite.
+Review the last 10 commit messages. For any that are vague, unclear, or don't follow conventional commits format, suggest a rewrite...
 
 Conventional commit format: type(scope): description
 Types: feat, fix, chore, docs, refactor, test, style, perf

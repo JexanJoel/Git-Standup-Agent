@@ -22,4 +22,4 @@ Format:
 
 For each bad commit: [commit hash] — the roast + what to do instead.
 
-End with an overall score /10 and one genuine compliment.
+End with an overall score /10 and one genuine compliment...

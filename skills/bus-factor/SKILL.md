@@ -26,4 +26,4 @@ Format:
 
 **Overall Bus Factor Score: X/10**
 
-End with recommendations to reduce risk.
+End with recommendations to reduce risk...

@@ -25,4 +25,4 @@ Format:
 ⏰ Most Active Time: [time range]
 📈 This week vs last week: +/-X commits
 
-End with a motivational message based on the streak.
+End with a motivational message based on the streak...
