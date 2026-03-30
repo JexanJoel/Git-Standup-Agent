@@ -79,6 +79,9 @@ echo "GROQ_API_KEY=your_key_here" > .env
 # 4. Run
 node index.js
 ```
+---
+
+### Usuage
 
 ## 🤖 Commands
 
