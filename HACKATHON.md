@@ -106,8 +106,6 @@ The agent is fully runnable in-browser via **[Clawless](https://play.clawless.io
 
 No Node.js install. No terminal. Runs entirely in your browser.
 
-> See also: **[Embedded Demo](./demo/clawless-demo.html)** — a self-contained HTML page powered by ClawContainer that lets you try the agent directly.
-
 ---
 
 ## 🧩 What I Learned
@@ -122,5 +120,5 @@ No Node.js install. No terminal. Runs entirely in your browser.
 
 - **Repo:** [github.com/JexanJoel/Git-Standup-Agent](https://github.com/JexanJoel/Git-Standup-Agent)
 - **Live Demo:** [play.clawless.io](https://play.clawless.io)
-- **gitagent spec:** [github.com/open-gitagent/gitagent](https://github.com/open-gitagent/gitagent)
 - **Groq:** [console.groq.com](https://console.groq.com)
+- **gitagent spec:** [github.com/open-gitagent/gitagent](https://github.com/open-gitagent/gitagent)
