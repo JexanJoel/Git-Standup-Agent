@@ -1,21 +1,22 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/JexanJoel/Git-Standup-Agent/main/assets/banner.png" alt="git-standup-agent" width="100%">
+<h1>🤖 Git-Standup-Agent</h1>
 
-# 🤖 git-standup-agent
+<p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
-**Your git repo has a memory. Now it can speak.**
-
-*A git-native AI agent built on the [gitagent](https://github.com/open-gitagent/gitagent) open standard.*  
-*It lives inside your repository, reads your commits, and turns them into intelligence.*
+<p><em>A git-native AI agent built on the <a href="https://github.com/open-gitagent/gitagent">gitagent</a> open standard.<br/>
+It lives inside your repository, reads your commits, and turns them into intelligence.</em></p>
 
 <br/>
 
-[![gitagent](https://img.shields.io/badge/gitagent-v0.1.0-blue?style=flat-square)](https://github.com/open-gitagent/gitagent)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square)](https://nodejs.org)
-[![Powered by Groq](https://img.shields.io/badge/Powered%20by-Groq-orange?style=flat-square)](https://groq.com)
-[![Hackathon](https://img.shields.io/badge/GitAgent%20Hackathon-2026-purple?style=flat-square)](https://hackculture.in)
+<!-- BADGES -->
+<p>
+  <a href="https://github.com/open-gitagent/gitagent"><img src="https://img.shields.io/badge/gitagent-v0.1.0-blue?style=flat-square" alt="gitagent"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License"/></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square" alt="Node"/></a>
+  <a href="https://groq.com"><img src="https://img.shields.io/badge/Powered%20by-Groq-orange?style=flat-square" alt="Groq"/></a>
+  <a href="https://hackculture.in"><img src="https://img.shields.io/badge/GitAgent%20Hackathon-2026-purple?style=flat-square" alt="Hackathon"/></a>
+</p>
 
 <br/>
 
@@ -35,18 +36,22 @@ No dashboards. No cloud sync. No third-party services. Just clone and run.
 
 ## ✨ Features
 
-| Command | What it does | Output file |
+<div align="center">
+
+| Command | What it does | Output |
 |---|---|---|
 | `standup` | Daily standup from last 24hrs of commits | `STANDUP.md` |
 | `weekly summary` | 7-day digest grouped by type | `WEEKLY.md` |
-| `roast me` | Brutally honest commit review 🔥 | `ROAST.md` |
-| `health report` | Code health scan — TODOs, churn, debt 📊 | `HEALTH.md` |
-| `suggest commits` | Rewrites bad commit messages 🎯 | `COMMIT-SUGGESTIONS.md` |
-| `share` | Formats standup for Slack & email 📧 | `SHARE.md` |
-| `pr summary` | Summarizes your changes as a PR description 🔮 | `PR-SUMMARY.md` |
-| `streak` | Tracks your commit streak like GitHub ⏰ | `STREAK.md` |
-| `changelog` | Auto-generates `CHANGELOG.md` from all commits 🧩 | `CHANGELOG.md` |
-| `bus factor` | Identifies single-owner files — knowledge risk 🚨 | `BUS-FACTOR.md` |
+| `roast me` 🔥 | Brutally honest commit review | `ROAST.md` |
+| `health report` 📊 | Code health scan — TODOs, churn, debt | `HEALTH.md` |
+| `suggest commits` 🎯 | Rewrites bad commit messages | `COMMIT-SUGGESTIONS.md` |
+| `share` 📧 | Formats standup for Slack & email | `SHARE.md` |
+| `pr summary` 🔮 | Summarizes your changes as a PR description | `PR-SUMMARY.md` |
+| `streak` ⏰ | Tracks your commit streak like GitHub | `STREAK.md` |
+| `changelog` 🧩 | Auto-generates `CHANGELOG.md` from all commits | `CHANGELOG.md` |
+| `bus factor` 🚨 | Identifies single-owner files — knowledge risk | `BUS-FACTOR.md` |
+
+</div>
 
 ---
 
@@ -76,26 +81,28 @@ node index.js
 
 ### Usage
 
-```
-┌──────────────────────────────────────────────────┐
-│            git-standup-agent 🤖                  │
-├──────────────────────────────────────────────────┤
-│  standup           → Daily standup report        │
-│  weekly summary    → 7-day activity digest       │
-│  roast me          → Brutal commit review    🔥  │
-│  health report     → Code health scan        📊  │
-│  suggest commits   → Better commit messages  🎯  │
-│  share             → Slack & email format    📧  │
-│  pr summary        → PR description          🔮  │
-│  streak            → Commit streak tracker   ⏰  │
-│  changelog         → Auto-generate changelog 🧩  │
-│  bus factor        → Knowledge risk analysis 🚨  │
-│  help              → Show this menu              │
-│  exit              → Quit                        │
-└──────────────────────────────────────────────────┘
+<div align="center">
+
+## 🤖 git-standup-agent
+
+| Command | Description |
+|---|---|
+| `standup` | Daily standup report |
+| `weekly summary` | 7-day activity digest |
+| `roast me` | Brutal commit review 🔥 |
+| `health report` | Code health scan 📊 |
+| `suggest commits` | Better commit messages 🎯 |
+| `share` | Slack & email format 📧 |
+| `pr summary` | PR description 🔮 |
+| `streak` | Commit streak tracker ⏰ |
+| `changelog` | Auto-generate changelog 🧩 |
+| `bus factor` | Knowledge risk analysis 🚨 |
+| `help` | Show this menu |
+| `exit` | Quit |
+
+</div>
 
 You: standup
-```
 
 ---
 
@@ -161,6 +168,8 @@ Expected output:
 
 ## 🏗️ How It Works
 
+<div align="center">
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    git-standup-agent                        │
@@ -180,12 +189,14 @@ Expected output:
 │              └─────────────────────┘                        │
 │                         │                                   │
 │           ┌─────────────┴──────────────┐                    │
-│           ▼                            ▼                   │
-│    STANDUP.md                    CHANGELOG.md                │
+│           ▼                            ▼                    │
+│    STANDUP.md                    CHANGELOG.md               │
 │    ROAST.md                      BUS-FACTOR.md              │
 │    HEALTH.md                     + more...                  │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+</div>
 
 1. **Agent identity** is loaded from `SOUL.md`, `RULES.md`, and all `SKILL.md` files
 2. **Git context** is pulled live using `git log` for the relevant time range
@@ -198,9 +209,13 @@ Expected output:
 
 ### Environment Variables
 
+<div align="center">
+
 | Variable | Required | Description |
 |---|---|---|
 | `GROQ_API_KEY` | ✅ Yes | Your Groq API key — [get one free](https://console.groq.com) |
+
+</div>
 
 ### Model
 
@@ -218,6 +233,8 @@ model:
 
 ## 🧩 Built With
 
+<div align="center">
+
 | Technology | Purpose |
 |---|---|
 | [gitagent](https://github.com/open-gitagent/gitagent) | Git-native agent standard |
@@ -225,6 +242,8 @@ model:
 | [llama-3.3-70b-versatile](https://groq.com/models) | The model powering the agent |
 | [gitclaw](https://github.com/open-gitagent/gitclaw) | Agent runtime SDK |
 | Node.js | Runtime environment |
+
+</div>
 
 ---
 
@@ -242,7 +261,13 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📄 License
 
+<div align="center">
+
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
 MIT © [JexanJoel](https://github.com/JexanJoel)
+
+</div>
 
 ---
 
