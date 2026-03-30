@@ -217,8 +217,6 @@ Contributions, issues, and feature requests are welcome! See [CONTRIBUTING.md](C
 
 <div align="center">
 
-[![GitAgent Hackathon 2026](https://img.shields.io/badge/Built_for_GitAgent_Hackathon_2026_🏆-6366f1?style=for-the-badge)](https://hackculture.in)
-
-[![gitagent open standard](https://img.shields.io/badge/Powered_by_the_gitagent_open_standard-534AB7?style=flat-square)](https://github.com/open-gitagent/gitagent)
+[![GitAgent Hackathon 2026](https://img.shields.io/badge/Built_for_GitAgent_Hackathon_2026_🏆-6366f1?style=flat-square&logoColor=white)](https://hackculture.in)
 
 </div>
