@@ -4,9 +4,6 @@
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
-<p><em>A git-native AI agent built on the <a href="https://github.com/open-gitagent/gitagent">gitagent</a> open standard.<br/>
-It lives inside your repository, reads your commits, and turns them into intelligence.</em></p>
-
 <br/>
 
 <!-- BADGES -->
@@ -26,7 +23,7 @@ It lives inside your repository, reads your commits, and turns them into intelli
 
 ## 🧠 What is this?
 
-`git-standup-agent` is an AI agent that **lives inside your git repository** — defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
+`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
 
 No dashboards. No cloud sync. No third-party services. Just clone and run.
 
@@ -43,13 +40,13 @@ No dashboards. No cloud sync. No third-party services. Just clone and run.
 | `standup` | Daily standup from last 24hrs of commits | `STANDUP.md` |
 | `weekly summary` | 7-day digest grouped by type | `WEEKLY.md` |
 | `roast me` 🔥 | Brutally honest commit review | `ROAST.md` |
-| `health report` 📊 | Code health scan — TODOs, churn, debt | `HEALTH.md` |
+| `health report` 📊 | Code health scan - TODOs, churn, debt | `HEALTH.md` |
 | `suggest commits` 🎯 | Rewrites bad commit messages | `COMMIT-SUGGESTIONS.md` |
 | `share` 📧 | Formats standup for Slack & email | `SHARE.md` |
 | `pr summary` 🔮 | Summarizes your changes as a PR description | `PR-SUMMARY.md` |
 | `streak` ⏰ | Tracks your commit streak like GitHub | `STREAK.md` |
 | `changelog` 🧩 | Auto-generates `CHANGELOG.md` from all commits | `CHANGELOG.md` |
-| `bus factor` 🚨 | Identifies single-owner files — knowledge risk | `BUS-FACTOR.md` |
+| `bus factor` 🚨 | Identifies single-owner files - knowledge risk | `BUS-FACTOR.md` |
 
 </div>
 
@@ -102,7 +99,9 @@ node index.js
 
 </div>
 
+```
 You: standup
+```
 
 ---
 
@@ -157,10 +156,10 @@ npx @shreyaskapale/gitagent export --format system-prompt
 
 Expected output:
 ```
-✓ agent.yaml — valid
-✓ SOUL.md — valid
-✓ tools/git-log.yaml — valid
-✓ skills/ — valid
+✓ agent.yaml - valid
+✓ SOUL.md - valid
+✓ tools/git-log.yaml - valid
+✓ skills/ - valid
 ✓ Validation passed (0 warnings)
 ```
 
@@ -182,9 +181,9 @@ Expected output:
 │                         ▼                                   │
 │              ┌─────────────────────┐                        │
 │              │    index.js         │                        │
-│              │  reads git log  →   │                        │
-│              │  builds context →   │                        │
-│              │  calls Groq LLM →   │                        │
+│              │  reads git log  ->  │                        │
+│              │  builds context ->  │                        │
+│              │  calls Groq LLM ->  │                        │
 │              │  saves output       │                        │
 │              └─────────────────────┘                        │
 │                         │                                   │
@@ -196,12 +195,12 @@ Expected output:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-</div>
-
 1. **Agent identity** is loaded from `SOUL.md`, `RULES.md`, and all `SKILL.md` files
 2. **Git context** is pulled live using `git log` for the relevant time range
 3. **Groq LLM** processes the identity + context and generates the output
 4. **Output** is printed to terminal and saved to a `.md` file automatically
+
+</div>
 
 ---
 
@@ -213,7 +212,7 @@ Expected output:
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | ✅ Yes | Your Groq API key — [get one free](https://console.groq.com) |
+| `GROQ_API_KEY` | ✅ Yes | Your Groq API key - [get one free](https://console.groq.com) |
 
 </div>
 
