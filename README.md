@@ -85,72 +85,24 @@ node index.js
 <div align="center">
 <table>
 <tr>
-<td align="center" width="33%">
-<img src="https://img.shields.io/badge/standup-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
-<code>standup</code><br/>
-<sub>Daily standup from last 24hrs → <code>STANDUP.md</code></sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.shields.io/badge/weekly_summary-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
-<code>weekly summary</code><br/>
-<sub>7-day digest grouped by type → <code>WEEKLY.md</code></sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.shields.io/badge/🔥_roast_me-FCEBEB?style=for-the-badge&labelColor=FCEBEB&color=FCEBEB"/><br/>
-<code>roast me</code><br/>
-<sub>Brutally honest commit review → <code>ROAST.md</code></sub>
-</td>
+<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/📋_STANDUP-534AB7?style=for-the-badge&logoColor=EEEDFE"/></a><br/><sub>Daily standup from last 24hrs → <code>STANDUP.md</code></sub></td>
+<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/📅_WEEKLY_SUMMARY-534AB7?style=for-the-badge"/></a><br/><sub>7-day digest grouped by type → <code>WEEKLY.md</code></sub></td>
+<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/🔥_ROAST_ME-A32D2D?style=for-the-badge"/></a><br/><sub>Brutally honest commit review → <code>ROAST.md</code></sub></td>
 </tr>
 <tr>
-<td align="center">
-<img src="https://img.shields.io/badge/📊_health_report-E1F5EE?style=for-the-badge&labelColor=E1F5EE&color=E1F5EE"/><br/>
-<code>health report</code><br/>
-<sub>TODOs, churn, tech debt → <code>HEALTH.md</code></sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/✏️_suggest_commits-E6F1FB?style=for-the-badge&labelColor=E6F1FB&color=E6F1FB"/><br/>
-<code>suggest commits</code><br/>
-<sub>Rewrites bad commit messages → <code>COMMIT-SUGGESTIONS.md</code></sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/📧_share-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
-<code>share</code><br/>
-<sub>Formats for Slack & email → <code>SHARE.md</code></sub>
-</td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/📊_HEALTH_REPORT-0F6E56?style=for-the-badge"/></a><br/><sub>TODOs, churn, tech debt → <code>HEALTH.md</code></sub></td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/✏️_SUGGEST_COMMITS-185FA5?style=for-the-badge"/></a><br/><sub>Rewrites bad commit messages → <code>COMMIT-SUGGESTIONS.md</code></sub></td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/📧_SHARE-993556?style=for-the-badge"/></a><br/><sub>Formats standup for Slack & email → <code>SHARE.md</code></sub></td>
 </tr>
 <tr>
-<td align="center">
-<img src="https://img.shields.io/badge/🔮_pr_summary-E6F1FB?style=for-the-badge&labelColor=E6F1FB&color=E6F1FB"/><br/>
-<code>pr summary</code><br/>
-<sub>PR description from changes → <code>PR-SUMMARY.md</code></sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/⏰_streak-FAEEDA?style=for-the-badge&labelColor=FAEEDA&color=FAEEDA"/><br/>
-<code>streak</code><br/>
-<sub>GitHub-style commit streak → <code>STREAK.md</code></sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/🧩_changelog-EAF3DE?style=for-the-badge&labelColor=EAF3DE&color=EAF3DE"/><br/>
-<code>changelog</code><br/>
-<sub>Auto-generate changelog → <code>CHANGELOG.md</code></sub>
-</td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/🔮_PR_SUMMARY-185FA5?style=for-the-badge"/></a><br/><sub>PR description from your changes → <code>PR-SUMMARY.md</code></sub></td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/⏰_STREAK-854F0B?style=for-the-badge"/></a><br/><sub>GitHub-style commit streak → <code>STREAK.md</code></sub></td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/🧩_CHANGELOG-3B6D11?style=for-the-badge"/></a><br/><sub>Auto-generate changelog → <code>CHANGELOG.md</code></sub></td>
 </tr>
 <tr>
-<td align="center">
-<img src="https://img.shields.io/badge/🚨_bus_factor-FCEBEB?style=for-the-badge&labelColor=FCEBEB&color=FCEBEB"/><br/>
-<code>bus factor</code><br/>
-<sub>Knowledge risk analysis → <code>BUS-FACTOR.md</code></sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/help-F1EFE8?style=for-the-badge&labelColor=F1EFE8&color=F1EFE8"/><br/>
-<code>help</code><br/>
-<sub>Show this menu</sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/exit-F1EFE8?style=for-the-badge&labelColor=F1EFE8&color=F1EFE8"/><br/>
-<code>exit</code><br/>
-<sub>Quit the agent</sub>
-</td>
+<td align="center"><a href="#"><img src="https://img.shields.io/badge/🚨_BUS_FACTOR-A32D2D?style=for-the-badge"/></a><br/><sub>Single-owner file risk → <code>BUS-FACTOR.md</code></sub></td>
+<td align="center"><img src="https://img.shields.io/badge/ℹ️_HELP-5F5E5A?style=for-the-badge"/><br/><sub>Show this menu</sub></td>
+<td align="center"><img src="https://img.shields.io/badge/✕_EXIT-5F5E5A?style=for-the-badge"/><br/><sub>Quit the agent</sub></td>
 </tr>
 </table>
 </div>
@@ -158,7 +110,6 @@ node index.js
 > ```
 > You: standup
 > ```
-
 ---
 
 ## 🏗️ How It Works
