@@ -1,18 +1,20 @@
 **Code Health Report** 📊
 
-🟢 Healthy Signals:
-* The repository is new, with only 2 commits in the last 7 days.
-* The commits are following the conventional commit format (feat: brief description).
-* There are no TODO or FIXME comments found in the recent commits.
-* No revert commits or dependency update commits were detected.
+🔴 Critical Issues
+* No critical issues found, but the project has a very low bus factor due to only one contributor (Jexan Joel) making all 23 commits in the last 7 days.
+* The `Readme.md` file has been updated 11 times in the last 26 minutes, which may indicate unstable code or rapid changes without thorough testing.
 
-🟡 Warnings:
-* The repository has very few commits, making it difficult to assess its overall health.
-* Only one contributor (Jexan Joel) has made changes in the last 7 days, which may indicate a lack of collaboration.
+🟡 Warnings
+* The `Readme.md` file has been updated frequently, which may indicate that the documentation is not yet stable.
+* No TODO or FIXME comments were found in the recent commits, but the frequent updates to `Readme.md` may indicate that the project is still in the early stages of development.
 
-🔴 Critical Issues:
-* None found.
+🟢 Healthy Signals
+* The project has a clear and consistent commit history, with descriptive commit messages.
+* The use of conventional commit prefixes (e.g. `feat:`) is good practice.
 
-Overall Health Score: 8/10
+Overall Health Score: 7/10
 
-The repository appears to be in a good state, with well-structured commits and no critical issues found. However, it's still early days, and more commits and contributors are needed to get a better sense of the repository's overall health.
+Recommendations:
+* Consider adding more contributors to the project to reduce the bus factor and improve code ownership.
+* Review the frequent updates to `Readme.md` to ensure that the documentation is stable and accurate.
+* Continue to use descriptive commit messages and conventional commit prefixes to maintain a clear and consistent commit history.
