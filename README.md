@@ -83,25 +83,78 @@ node index.js
 ## 🤖 Commands
 
 <div align="center">
-
-| | Command | What it does |
-|:---:|:---|:---|
-| <img src="https://img.shields.io/badge/standup-4f46e5?style=flat-square&logoColor=white"/> | `standup` | Daily standup from last 24hrs of commits → `STANDUP.md` |
-| <img src="https://img.shields.io/badge/weekly%20summary-4f46e5?style=flat-square"/> | `weekly summary` | 7-day digest grouped by type → `WEEKLY.md` |
-| <img src="https://img.shields.io/badge/roast%20me%20🔥-dc2626?style=flat-square"/> | `roast me` | Brutally honest commit review → `ROAST.md` |
-| <img src="https://img.shields.io/badge/health%20report%20📊-0f766e?style=flat-square"/> | `health report` | Code health scan — TODOs, churn, debt → `HEALTH.md` |
-| <img src="https://img.shields.io/badge/suggest%20commits%20🎯-0369a1?style=flat-square"/> | `suggest commits` | Rewrites bad commit messages → `COMMIT-SUGGESTIONS.md` |
-| <img src="https://img.shields.io/badge/share%20📧-7c3aed?style=flat-square"/> | `share` | Formats standup for Slack & email → `SHARE.md` |
-| <img src="https://img.shields.io/badge/pr%20summary%20🔮-6d28d9?style=flat-square"/> | `pr summary` | Summarizes your changes as a PR description → `PR-SUMMARY.md` |
-| <img src="https://img.shields.io/badge/streak%20⏰-b45309?style=flat-square"/> | `streak` | Tracks your commit streak like GitHub → `STREAK.md` |
-| <img src="https://img.shields.io/badge/changelog%20🧩-15803d?style=flat-square"/> | `changelog` | Auto-generates `CHANGELOG.md` from all commits |
-| <img src="https://img.shields.io/badge/bus%20factor%20🚨-b91c1c?style=flat-square"/> | `bus factor` | Identifies single-owner files → `BUS-FACTOR.md` |
-| <img src="https://img.shields.io/badge/help-475569?style=flat-square"/> | `help` | Show this menu |
-| <img src="https://img.shields.io/badge/exit-374151?style=flat-square"/> | `exit` | Quit |
-
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="https://img.shields.io/badge/standup-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
+<code>standup</code><br/>
+<sub>Daily standup from last 24hrs → <code>STANDUP.md</code></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.shields.io/badge/weekly_summary-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
+<code>weekly summary</code><br/>
+<sub>7-day digest grouped by type → <code>WEEKLY.md</code></sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.shields.io/badge/🔥_roast_me-FCEBEB?style=for-the-badge&labelColor=FCEBEB&color=FCEBEB"/><br/>
+<code>roast me</code><br/>
+<sub>Brutally honest commit review → <code>ROAST.md</code></sub>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/📊_health_report-E1F5EE?style=for-the-badge&labelColor=E1F5EE&color=E1F5EE"/><br/>
+<code>health report</code><br/>
+<sub>TODOs, churn, tech debt → <code>HEALTH.md</code></sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/✏️_suggest_commits-E6F1FB?style=for-the-badge&labelColor=E6F1FB&color=E6F1FB"/><br/>
+<code>suggest commits</code><br/>
+<sub>Rewrites bad commit messages → <code>COMMIT-SUGGESTIONS.md</code></sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/📧_share-EEEDFE?style=for-the-badge&labelColor=EEEDFE&color=EEEDFE"/><br/>
+<code>share</code><br/>
+<sub>Formats for Slack & email → <code>SHARE.md</code></sub>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/🔮_pr_summary-E6F1FB?style=for-the-badge&labelColor=E6F1FB&color=E6F1FB"/><br/>
+<code>pr summary</code><br/>
+<sub>PR description from changes → <code>PR-SUMMARY.md</code></sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/⏰_streak-FAEEDA?style=for-the-badge&labelColor=FAEEDA&color=FAEEDA"/><br/>
+<code>streak</code><br/>
+<sub>GitHub-style commit streak → <code>STREAK.md</code></sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/🧩_changelog-EAF3DE?style=for-the-badge&labelColor=EAF3DE&color=EAF3DE"/><br/>
+<code>changelog</code><br/>
+<sub>Auto-generate changelog → <code>CHANGELOG.md</code></sub>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/🚨_bus_factor-FCEBEB?style=for-the-badge&labelColor=FCEBEB&color=FCEBEB"/><br/>
+<code>bus factor</code><br/>
+<sub>Knowledge risk analysis → <code>BUS-FACTOR.md</code></sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/help-F1EFE8?style=for-the-badge&labelColor=F1EFE8&color=F1EFE8"/><br/>
+<code>help</code><br/>
+<sub>Show this menu</sub>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/exit-F1EFE8?style=for-the-badge&labelColor=F1EFE8&color=F1EFE8"/><br/>
+<code>exit</code><br/>
+<sub>Quit the agent</sub>
+</td>
+</tr>
+</table>
 </div>
 
-> **Quick start:** Type a command and hit enter
 > ```
 > You: standup
 > ```
