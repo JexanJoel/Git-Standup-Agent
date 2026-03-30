@@ -1,10 +1,19 @@
 ## Weekly Summary
 
-Here's a summary of the work done in the last 7 days:
+* **Completed**: 
+  + Completed agent testing and fixes
+  + Added comprehensive README with architecture diagram
+  + Added Groq runtime and working demo
+* **Updated**: 
+  + Readme.md (multiple updates)
+  + index.js
+  + run.js
+  + agent.yaml
+  + Skills section
+  + Contributing.md
+  + Code of Conduct
+* **Added**: 
+  + LICENSE
+  + Initial commit of git-standup-agent
 
-* **Added**: LICENSE file, Contributing.md, and Code of Conduct
-* **Updated**: index.js, run.js, agent.yaml, and multiple updates to Readme.md to add a comprehensive README with an architecture diagram
-* **New Features**: Added groq runtime and a working demo
-* **Initial Commit**: The project was initialized with the git-standup-agent
-
-All changes were made by Jexan Joel within the last 85 minutes.
+All changes were made by Jexan Joel.

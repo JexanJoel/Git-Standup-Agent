@@ -1,21 +1,19 @@
 **PR Summary** 🔮
 
 ## What changed
-The LICENSE file has been updated.
+The README.md file has been updated to reflect changes in the project. Multiple commits have been made to improve the readability and content of the file.
 
 ## Why it changed
-The reason for the update is not explicitly stated in the commit messages, but it appears to be a part of a larger update to the repository, including changes to various code files and the Readme.md.
+The changes were made to ensure the README.md file is up-to-date and accurately represents the current state of the project.
 
 ## Files affected
-The following files were changed:
-* LICENSE
-* index.js
-* run.js
-* agent.yaml
-* Readme.md (multiple updates)
+* README.md
+
+## Type of change
+The change is a documentation update, focusing on improving the project's README.md file.
 
 ## Risks / Review focus
-Reviewers should check the updated LICENSE file for any changes that may affect the project's legal or licensing status. Additionally, the multiple updates to the Readme.md file should be reviewed to ensure that the changes are accurate and consistent.
+Reviewers should check for accuracy and clarity of the updated README.md file, ensuring it provides a clear understanding of the project.
 
 ## Suggested PR title
-"Updated LICENSE and various code files"
+Update README.md for clarity and accuracy

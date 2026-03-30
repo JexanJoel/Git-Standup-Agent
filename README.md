@@ -54,6 +54,64 @@
 
 ---
 
+## 📸 Screenshots
+
+### 📋 Standup
+
+Turn your last 24 hours of commits into a clean daily standup.  
+Perfect for sharing progress without manually digging through git history.
+
+<p align="center">
+  <img src="./assets/standup.png" alt="Git Standup Agent - Standup output" width="100%" />
+</p>
+
+### 📅 Weekly Summary
+
+Get a 7-day digest of your work grouped into readable progress summaries.  
+A simple way to review what actually got done across the week.
+
+<p align="center">
+  <img src="./assets/weekly-summary.png" alt="Git Standup Agent - Weekly summary output" width="100%" />
+</p>
+
+### 🔥 Roast Me
+
+Get a brutally honest AI review of your commit habits.  
+Fun, memorable, and perfect for showing the personality of the agent.
+
+<p align="center">
+  <img src="./assets/roast-me.png" alt="Git Standup Agent - Roast me output" width="100%" />
+</p>
+
+### 📊 Health Report
+
+Scan your repository for TODOs, churn, and possible tech debt signals.  
+A quick repo health snapshot that turns raw code activity into useful insight.
+
+<p align="center">
+  <img src="./assets/health-report.png" alt="Git Standup Agent - Health report output" width="100%" />
+</p>
+
+### 🔮 PR Summary
+
+Generate a polished pull request summary from your recent changes.  
+Helps you explain what changed without writing the whole PR description manually.
+
+<p align="center">
+  <img src="./assets/pr-summary.png" alt="Git Standup Agent - PR summary output" width="100%" />
+</p>
+
+### 🚨 Bus Factor
+
+Identify files that depend too heavily on a single contributor.  
+A strong visual feature that highlights knowledge concentration and project risk.
+
+<p align="center">
+  <img src="./assets/bus-factor.png" alt="Git Standup Agent - Bus factor report" width="100%" />
+</p>
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites

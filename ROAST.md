@@ -1,14 +1,13 @@
 **Roast Report** 🔥
 
-Let's get roasting, Jexan Joel! 🤣
+Let's get roasting, Jexan Joel! 🍗
 
-* 2bbde74 — You added a LICENSE file. Great job on finally remembering that you need one! However, the commit message could be more descriptive. What kind of license is it? 
-* 8670277, 4d3cd54, 52dd43b, b0ba279, 94b7b7d, 67f7c70, 1ab7a42, cd548aa, a7c848b, 22e5243, 5b1fec9, 6f48f88, abc7a5e, 9f463e2 — Whoa, slow down! You've made 14 commits in the last 26 minutes. While I appreciate the enthusiasm, it looks like you're making a lot of tiny changes. Consider grouping related changes into fewer, more meaningful commits. And please, for the love of all things good, use more descriptive commit messages! Instead of "Updated Readme.md", try "Added new section to Readme.md" or "Fixed typo in Readme.md". 
+* a8cb3d5 — "Updated Readme.md" 🤦‍♂️ What did you update? The fact that you didn't include any details is a cardinal sin. Try: "docs: updated Readme.md to reflect new features" 
+* 546c75d, 4db4559, 94b7b7d, 67f7c70, 1ab7a42, cd548aa, a7c848b, 22e5243 — 8 commits with the same vague message. I'm starting to think you're allergic to descriptive commit messages. Take the time to write a proper commit message, or it's like you didn't even commit anything! 
+* ba4e11f — This one's not bad, but it could be better. "feat: complete agent testing and fixes" is good, but what kind of fixes? What testing did you complete? Give us some details, dev! 💡
+* 2bbde74 — A whole commit just for the LICENSE file? Not bad, but make sure it's actually necessary. Don't clutter the commit history with unnecessary changes! 
+* The rest of the commits look decent, but there's a trend here: most of your commits are just "Updated [file]". Let's work on making those commit messages more descriptive, shall we? 📝
 
-As for the commit messages, I'd suggest following the conventional commit format: type(scope): description. For example, "feat: add new feature" or "fix: fix bug".
+Overall Score: 4/10
 
-Overall score: 2/10
-
-One genuine compliment: You're clearly passionate about your project and are making an effort to improve it. Keep it up! 💪
-
-Now, go forth and commit like a pro! 💥
+One genuine compliment: It looks like you're actively working on the project, and that's something to be proud of! Keep it up, and let's get those commit messages ship-shape! 🚢
