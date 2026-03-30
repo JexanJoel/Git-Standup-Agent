@@ -135,6 +135,40 @@ echo "GROQ_API_KEY=your_key_here" > .env
 # 4. Run
 node index.js
 ```
+
+### Running via gitclaw SDK
+ 
+```bash
+# Install gitclaw
+npm install -g gitclaw
+ 
+# Run directly with a prompt
+gitclaw --dir . --model groq:llama-3.3-70b-versatile "generate my standup for today"
+gitclaw --dir . --model groq:llama-3.3-70b-versatile "roast my recent commits"
+gitclaw --dir . --model groq:llama-3.3-70b-versatile "give me a health report"
+```
+ 
+### Validate the agent spec
+ 
+```bash
+# Install gitagent CLI
+npm install -g @shreyaskapale/gitagent
+ 
+# Validate
+npx @shreyaskapale/gitagent validate
+npx @shreyaskapale/gitagent info
+npx @shreyaskapale/gitagent export --format system-prompt
+```
+ 
+Expected output:
+```
+✓ agent.yaml — valid
+✓ SOUL.md — valid
+✓ tools/git-log.yaml — valid
+✓ skills/ — valid
+✓ Validation passed (0 warnings)
+```
+ 
 ---
 
 ### Usage
