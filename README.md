@@ -80,28 +80,31 @@ echo "GROQ_API_KEY=your_key_here" > .env
 node index.js
 ```
 
-### Usage
+## 🤖 Commands
 
-## 🤖 git-standup-agent
+<div align="center">
 
-| Command | Description |
-|---|---|
-| `standup` | Daily standup report |
-| `weekly summary` | 7-day activity digest |
-| `roast me` | Brutal commit review 🔥 |
-| `health report` | Code health scan 📊 |
-| `suggest commits` | Better commit messages 🎯 |
-| `share` | Slack & email format 📧 |
-| `pr summary` | PR description 🔮 |
-| `streak` | Commit streak tracker ⏰ |
-| `changelog` | Auto-generate changelog 🧩 |
-| `bus factor` | Knowledge risk analysis 🚨 |
-| `help` | Show this menu |
-| `exit` | Quit |
+| | Command | What it does |
+|:---:|:---|:---|
+| <img src="https://img.shields.io/badge/standup-4f46e5?style=flat-square&logoColor=white"/> | `standup` | Daily standup from last 24hrs of commits → `STANDUP.md` |
+| <img src="https://img.shields.io/badge/weekly%20summary-4f46e5?style=flat-square"/> | `weekly summary` | 7-day digest grouped by type → `WEEKLY.md` |
+| <img src="https://img.shields.io/badge/roast%20me%20🔥-dc2626?style=flat-square"/> | `roast me` | Brutally honest commit review → `ROAST.md` |
+| <img src="https://img.shields.io/badge/health%20report%20📊-0f766e?style=flat-square"/> | `health report` | Code health scan — TODOs, churn, debt → `HEALTH.md` |
+| <img src="https://img.shields.io/badge/suggest%20commits%20🎯-0369a1?style=flat-square"/> | `suggest commits` | Rewrites bad commit messages → `COMMIT-SUGGESTIONS.md` |
+| <img src="https://img.shields.io/badge/share%20📧-7c3aed?style=flat-square"/> | `share` | Formats standup for Slack & email → `SHARE.md` |
+| <img src="https://img.shields.io/badge/pr%20summary%20🔮-6d28d9?style=flat-square"/> | `pr summary` | Summarizes your changes as a PR description → `PR-SUMMARY.md` |
+| <img src="https://img.shields.io/badge/streak%20⏰-b45309?style=flat-square"/> | `streak` | Tracks your commit streak like GitHub → `STREAK.md` |
+| <img src="https://img.shields.io/badge/changelog%20🧩-15803d?style=flat-square"/> | `changelog` | Auto-generates `CHANGELOG.md` from all commits |
+| <img src="https://img.shields.io/badge/bus%20factor%20🚨-b91c1c?style=flat-square"/> | `bus factor` | Identifies single-owner files → `BUS-FACTOR.md` |
+| <img src="https://img.shields.io/badge/help-475569?style=flat-square"/> | `help` | Show this menu |
+| <img src="https://img.shields.io/badge/exit-374151?style=flat-square"/> | `exit` | Quit |
 
-```
-You: standup
-```
+</div>
+
+> **Quick start:** Type a command and hit enter
+> ```
+> You: standup
+> ```
 
 ---
 
