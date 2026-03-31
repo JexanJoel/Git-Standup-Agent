@@ -4,7 +4,7 @@
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
-<p><em>Point it at any repo - local or public GitHub URL and get instant intelligence.</em></p>
+<p><em>Point it at any repo - local or public GitHub URL - and get instant intelligence.</em></p>
 
 <br/>
 
@@ -29,9 +29,9 @@
 
 ## 🧠 What is this?
 
-`git-standup-agent` is an AI agent that **lives inside your git repository** — defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
+`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
 
-**What makes it different?** Just paste any public GitHub URL at startup and the agent clones it, analyzes it, and lets you run all 10 commands on it — without ever leaving your terminal. No dashboards. No cloud sync. No third-party services. Just clone and run.
+**What makes it different?** Just paste any public GitHub URL at startup and the agent clones it, analyzes it, and lets you run all 10 commands on it - without ever leaving your terminal. No dashboards. No cloud sync. No third-party services. Just clone and run.
 
 > *"Stop copying commit hashes into Slack. Let your repo speak for itself."*
 
@@ -46,13 +46,13 @@
 | `standup` | Daily standup from last 24hrs of commits | `STANDUP.md` |
 | `weekly summary` | 7-day digest grouped by type | `WEEKLY.md` |
 | `roast me` 🔥 | Brutally honest commit review | `ROAST.md` |
-| `health report` 📊 | Code health scan — TODOs, churn, debt | `HEALTH.md` |
+| `health report` 📊 | Code health scan - TODOs, churn, debt | `HEALTH.md` |
 | `suggest commits` 🎯 | Rewrites bad commit messages | `COMMIT-SUGGESTIONS.md` |
 | `share` 📧 | Formats standup for Slack & email | `SHARE.md` |
 | `pr summary` 🔮 | Summarizes your changes as a PR description | `PR-SUMMARY.md` |
 | `streak` ⏰ | Tracks your commit streak like GitHub | `STREAK.md` |
 | `changelog` 🧩 | Auto-generates `CHANGELOG.md` from all commits | `CHANGELOG.md` |
-| `bus factor` 🚨 | Identifies single-owner files — knowledge risk | `BUS-FACTOR.md` |
+| `bus factor` 🚨 | Identifies single-owner files - knowledge risk | `BUS-FACTOR.md` |
 
 </div>
 
@@ -60,7 +60,7 @@
 
 ## 📸 Screenshots
 
-### 🔗 Repo Selection — Local or Any Public GitHub URL
+### 🔗 Repo Selection - Local or Any Public GitHub URL
 
 At startup, the agent asks for a repo. Press Enter to use your local repo, or paste any public GitHub URL to analyze it instantly. The agent auto-clones it, reads the git history, and loads the command menu with live repo stats.
 
@@ -70,7 +70,7 @@ At startup, the agent asks for a repo. Press Enter to use your local repo, or pa
 
 ---
 
-### 📋 Standup — Daily Progress Report
+### 📋 Standup - Daily Progress Report
 
 Turn your last 24 hours of commits into a clean daily standup, grouped by feature, fix, and chore. Perfect for sharing in team channels without manually digging through git history.
 
@@ -80,9 +80,9 @@ Turn your last 24 hours of commits into a clean daily standup, grouped by featur
 
 ---
 
-### 📅 Weekly Summary — 7-Day Digest
+### 📅 Weekly Summary - 7-Day Digest
 
-Get a full week of work summarized into a readable digest, grouped by type — features shipped, bugs fixed, and maintenance done. A simple way to review what actually got done.
+Get a full week of work summarized into a readable digest, grouped by type - features shipped, bugs fixed, and maintenance done. A simple way to review what actually got done.
 
 <p align="center">
   <img src="./assets/weekly-summary.png" alt="Git Standup Agent - Weekly summary output" width="100%" />
@@ -90,9 +90,9 @@ Get a full week of work summarized into a readable digest, grouped by type — f
 
 ---
 
-### 🔥 Roast Me — Brutal Commit Review
+### 🔥 Roast Me - Brutal Commit Review
 
-Get a brutally honest, funny AI review of your commit habits. Flags vague messages, lazy WIP commits, missing prefixes, and more — with a score out of 10 and one genuine compliment.
+Get a brutally honest, funny AI review of your commit habits. Flags vague messages, lazy WIP commits, missing prefixes, and more - with a score out of 10 and one genuine compliment.
 
 <p align="center">
   <img src="./assets/roast-me.png" alt="Git Standup Agent - Roast me output" width="100%" />
@@ -100,9 +100,9 @@ Get a brutally honest, funny AI review of your commit habits. Flags vague messag
 
 ---
 
-### 📊 Health Report — Code Health Scan
+### 📊 Health Report - Code Health Scan
 
-Scan your repository for TODOs, FIXMEs, high-churn files, revert commits, and tech debt signals. Get a structured report with 🔴 Critical, 🟡 Warning, and 🟢 Healthy sections — plus an overall health score.
+Scan your repository for TODOs, FIXMEs, high-churn files, revert commits, and tech debt signals. Get a structured report with 🔴 Critical, 🟡 Warning, and 🟢 Healthy sections - plus an overall health score.
 
 <p align="center">
   <img src="./assets/health-report.png" alt="Git Standup Agent - Health report output" width="100%" />
@@ -110,9 +110,9 @@ Scan your repository for TODOs, FIXMEs, high-churn files, revert commits, and te
 
 ---
 
-### 🎯 Suggest Commits — Better Commit Messages
+### 🎯 Suggest Commits - Better Commit Messages
 
-Reviews your last 10 commit messages and rewrites any that are vague, lazy, or don't follow conventional commit format. Shows the original, the rewrite, and why it's better — with a Commit Quality Score.
+Reviews your last 10 commit messages and rewrites any that are vague, lazy, or don't follow conventional commit format. Shows the original, the rewrite, and why it's better - with a Commit Quality Score.
 
 <p align="center">
   <img src="./assets/suggest-commits.png" alt="Git Standup Agent - Commit suggester output" width="100%" />
@@ -120,9 +120,9 @@ Reviews your last 10 commit messages and rewrites any that are vague, lazy, or d
 
 ---
 
-### 📧 Share — Slack & Email Ready
+### 📧 Share - Slack & Email Ready
 
-Takes your last standup and reformats it into two ready-to-paste formats — a Slack message with emoji and bold headers, and a professional email with subject line and sign-off.
+Takes your last standup and reformats it into two ready-to-paste formats - a Slack message with emoji and bold headers, and a professional email with subject line and sign-off.
 
 <p align="center">
   <img src="./assets/share.png" alt="Git Standup Agent - Share output for Slack and email" width="100%" />
@@ -130,9 +130,9 @@ Takes your last standup and reformats it into two ready-to-paste formats — a S
 
 ---
 
-### 🔮 PR Summary — Auto PR Description
+### 🔮 PR Summary - Auto PR Description
 
-Analyzes your recent commits and changed files to generate a polished pull request description — what changed, why it changed, files affected, risks, and a suggested PR title.
+Analyzes your recent commits and changed files to generate a polished pull request description - what changed, why it changed, files affected, risks, and a suggested PR title.
 
 <p align="center">
   <img src="./assets/pr-summary.png" alt="Git Standup Agent - PR summary output" width="100%" />
@@ -140,7 +140,7 @@ Analyzes your recent commits and changed files to generate a polished pull reque
 
 ---
 
-### ⏰ Streak Tracker — GitHub-Style Commit Streaks
+### ⏰ Streak Tracker - GitHub-Style Commit Streaks
 
 Calculates your current commit streak, longest streak ever, most productive day of the week, most active time of day, and this week vs last week commit velocity. Ends with a motivational message.
 
@@ -150,9 +150,9 @@ Calculates your current commit streak, longest streak ever, most productive day 
 
 ---
 
-### 🧩 Auto Changelog — CHANGELOG.md Generator
+### 🧩 Auto Changelog - CHANGELOG.md Generator
 
-Reads your entire commit history and generates a professional `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com) format — grouped by version or month, with Added, Changed, Fixed, and Removed sections.
+Reads your entire commit history and generates a professional `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com) format - grouped by version or month, with Added, Changed, Fixed, and Removed sections.
 
 <p align="center">
   <img src="./assets/changelog.png" alt="Git Standup Agent - Auto changelog output" width="100%" />
@@ -160,9 +160,9 @@ Reads your entire commit history and generates a professional `CHANGELOG.md` fol
 
 ---
 
-### 🚨 Bus Factor — Knowledge Risk Analysis
+### 🚨 Bus Factor - Knowledge Risk Analysis
 
-Identifies files that only one contributor has ever touched. Flags 🔴 high-risk files (single owner), 🟡 medium-risk (one person owns 80%+), and 🟢 healthy files — with an overall Bus Factor Score and recommendations.
+Identifies files that only one contributor has ever touched. Flags 🔴 high-risk files (single owner), 🟡 medium-risk (one person owns 80%+), and 🟢 healthy files - with an overall Bus Factor Score and recommendations.
 
 <p align="center">
   <img src="./assets/bus-factor.png" alt="Git Standup Agent - Bus factor report" width="100%" />
@@ -198,7 +198,7 @@ At startup, you'll see:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              git-standup-agent 🤖                        │
+│              git-standup-agent                          │
 ├─────────────────────────────────────────────────────────┤
 │  Enter a public GitHub repo URL to analyze it,          │
 │  or press Enter to use the current local repo.          │
@@ -238,10 +238,10 @@ npx @shreyaskapale/gitagent export --format system-prompt
 
 Expected output:
 ```
-✓ agent.yaml — valid
-✓ SOUL.md — valid
-✓ tools/git-log.yaml — valid
-✓ skills/ — valid
+✓ agent.yaml - valid
+✓ SOUL.md - valid
+✓ tools/git-log.yaml - valid
+✓ skills/ - valid
 ✓ Validation passed (0 warnings)
 ```
 
@@ -326,7 +326,7 @@ flowchart TD
     classDef outfile fill:#111827,stroke:#374151,color:#9ca3af
 ```
 
-1. **At startup**, choose a local repo or paste any public GitHub URL — the agent auto-clones it
+1. **At startup**, choose a local repo or paste any public GitHub URL - the agent auto-clones it
 2. **Agent identity** is loaded from `SOUL.md`, `RULES.md`, and all 10 `SKILL.md` files
 3. **Git context** is pulled live using `git log` for the relevant time range
 4. **Groq LLM** processes the identity + context and generates the output
@@ -343,7 +343,7 @@ flowchart TD
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | ✅ Yes | Your Groq API key — [get one free](https://console.groq.com) |
+| `GROQ_API_KEY` | ✅ Yes | Your Groq API key - [get one free](https://console.groq.com) |
 
 </div>
 
