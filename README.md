@@ -4,7 +4,7 @@
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
-<p><em>Point it at any repo - local or public GitHub URL - and get instant intelligence.</em></p>
+<p><em>Point it at any repo - local or public GitHub URL and get instant intelligence.</em></p>
 
 <br/>
 
@@ -62,61 +62,107 @@
 
 ### 🔗 Repo Selection — Local or Any Public GitHub URL
 
-At startup, the agent asks for a repo. Press Enter to use your local repo, or paste any public GitHub URL to analyze it instantly.
+At startup, the agent asks for a repo. Press Enter to use your local repo, or paste any public GitHub URL to analyze it instantly. The agent auto-clones it, reads the git history, and loads the command menu with live repo stats.
 
 <p align="center">
-  <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection" width="100%" />
+  <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection screen" width="100%" />
 </p>
 
-### 📋 Standup
+---
 
-Turn your last 24 hours of commits into a clean daily standup.
-Perfect for sharing progress without manually digging through git history.
+### 📋 Standup — Daily Progress Report
+
+Turn your last 24 hours of commits into a clean daily standup, grouped by feature, fix, and chore. Perfect for sharing in team channels without manually digging through git history.
 
 <p align="center">
-  <img src="./assets/standup.png" alt="Git Standup Agent - Standup output" width="100%" />
+  <img src="./assets/standup.png" alt="Git Standup Agent - Daily standup output" width="100%" />
 </p>
 
-### 📅 Weekly Summary
+---
 
-Get a 7-day digest of your work grouped into readable progress summaries.
-A simple way to review what actually got done across the week.
+### 📅 Weekly Summary — 7-Day Digest
+
+Get a full week of work summarized into a readable digest, grouped by type — features shipped, bugs fixed, and maintenance done. A simple way to review what actually got done.
 
 <p align="center">
   <img src="./assets/weekly-summary.png" alt="Git Standup Agent - Weekly summary output" width="100%" />
 </p>
 
-### 🔥 Roast Me
+---
 
-Get a brutally honest AI review of your commit habits.
-Fun, memorable, and perfect for showing the personality of the agent.
+### 🔥 Roast Me — Brutal Commit Review
+
+Get a brutally honest, funny AI review of your commit habits. Flags vague messages, lazy WIP commits, missing prefixes, and more — with a score out of 10 and one genuine compliment.
 
 <p align="center">
   <img src="./assets/roast-me.png" alt="Git Standup Agent - Roast me output" width="100%" />
 </p>
 
-### 📊 Health Report
+---
 
-Scan your repository for TODOs, churn, and possible tech debt signals.
-A quick repo health snapshot that turns raw code activity into useful insight.
+### 📊 Health Report — Code Health Scan
+
+Scan your repository for TODOs, FIXMEs, high-churn files, revert commits, and tech debt signals. Get a structured report with 🔴 Critical, 🟡 Warning, and 🟢 Healthy sections — plus an overall health score.
 
 <p align="center">
   <img src="./assets/health-report.png" alt="Git Standup Agent - Health report output" width="100%" />
 </p>
 
-### 🔮 PR Summary
+---
 
-Generate a polished pull request summary from your recent changes.
-Helps you explain what changed without writing the whole PR description manually.
+### 🎯 Suggest Commits — Better Commit Messages
+
+Reviews your last 10 commit messages and rewrites any that are vague, lazy, or don't follow conventional commit format. Shows the original, the rewrite, and why it's better — with a Commit Quality Score.
+
+<p align="center">
+  <img src="./assets/suggest-commits.png" alt="Git Standup Agent - Commit suggester output" width="100%" />
+</p>
+
+---
+
+### 📧 Share — Slack & Email Ready
+
+Takes your last standup and reformats it into two ready-to-paste formats — a Slack message with emoji and bold headers, and a professional email with subject line and sign-off.
+
+<p align="center">
+  <img src="./assets/share.png" alt="Git Standup Agent - Share output for Slack and email" width="100%" />
+</p>
+
+---
+
+### 🔮 PR Summary — Auto PR Description
+
+Analyzes your recent commits and changed files to generate a polished pull request description — what changed, why it changed, files affected, risks, and a suggested PR title.
 
 <p align="center">
   <img src="./assets/pr-summary.png" alt="Git Standup Agent - PR summary output" width="100%" />
 </p>
 
-### 🚨 Bus Factor
+---
 
-Identify files that depend too heavily on a single contributor.
-A strong visual feature that highlights knowledge concentration and project risk.
+### ⏰ Streak Tracker — GitHub-Style Commit Streaks
+
+Calculates your current commit streak, longest streak ever, most productive day of the week, most active time of day, and this week vs last week commit velocity. Ends with a motivational message.
+
+<p align="center">
+  <img src="./assets/streak.png" alt="Git Standup Agent - Streak tracker output" width="100%" />
+</p>
+
+---
+
+### 🧩 Auto Changelog — CHANGELOG.md Generator
+
+Reads your entire commit history and generates a professional `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com) format — grouped by version or month, with Added, Changed, Fixed, and Removed sections.
+
+<p align="center">
+  <img src="./assets/changelog.png" alt="Git Standup Agent - Auto changelog output" width="100%" />
+</p>
+
+---
+
+### 🚨 Bus Factor — Knowledge Risk Analysis
+
+Identifies files that only one contributor has ever touched. Flags 🔴 high-risk files (single owner), 🟡 medium-risk (one person owns 80%+), and 🟢 healthy files — with an overall Bus Factor Score and recommendations.
 
 <p align="center">
   <img src="./assets/bus-factor.png" alt="Git Standup Agent - Bus factor report" width="100%" />
@@ -201,30 +247,28 @@ Expected output:
 
 ---
 
-### Usage
-
 ## 🤖 Commands
 
 <div align="center">
 <table>
 <tr>
-<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/📋_STANDUP-534AB7?style=for-the-badge&logoColor=EEEDFE"/></a><br/><sub>Daily standup from last 24hrs → <code>STANDUP.md</code></sub></td>
-<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/📅_WEEKLY_SUMMARY-534AB7?style=for-the-badge"/></a><br/><sub>7-day digest grouped by type → <code>WEEKLY.md</code></sub></td>
-<td align="center" width="33%"><a href="#"><img src="https://img.shields.io/badge/🔥_ROAST_ME-A32D2D?style=for-the-badge"/></a><br/><sub>Brutally honest commit review → <code>ROAST.md</code></sub></td>
+<td align="center" width="33%"><a href="#-standup--daily-progress-report"><img src="https://img.shields.io/badge/📋_STANDUP-534AB7?style=for-the-badge&logoColor=EEEDFE"/></a><br/><sub>Daily standup from last 24hrs → <code>STANDUP.md</code></sub></td>
+<td align="center" width="33%"><a href="#-weekly-summary--7-day-digest"><img src="https://img.shields.io/badge/📅_WEEKLY_SUMMARY-534AB7?style=for-the-badge"/></a><br/><sub>7-day digest grouped by type → <code>WEEKLY.md</code></sub></td>
+<td align="center" width="33%"><a href="#-roast-me--brutal-commit-review"><img src="https://img.shields.io/badge/🔥_ROAST_ME-A32D2D?style=for-the-badge"/></a><br/><sub>Brutally honest commit review → <code>ROAST.md</code></sub></td>
 </tr>
 <tr>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/📊_HEALTH_REPORT-0F6E56?style=for-the-badge"/></a><br/><sub>TODOs, churn, tech debt → <code>HEALTH.md</code></sub></td>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/✏️_SUGGEST_COMMITS-185FA5?style=for-the-badge"/></a><br/><sub>Rewrites bad commit messages → <code>COMMIT-SUGGESTIONS.md</code></sub></td>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/📧_SHARE-993556?style=for-the-badge"/></a><br/><sub>Formats standup for Slack & email → <code>SHARE.md</code></sub></td>
+<td align="center"><a href="#-health-report--code-health-scan"><img src="https://img.shields.io/badge/📊_HEALTH_REPORT-0F6E56?style=for-the-badge"/></a><br/><sub>TODOs, churn, tech debt → <code>HEALTH.md</code></sub></td>
+<td align="center"><a href="#-suggest-commits--better-commit-messages"><img src="https://img.shields.io/badge/✏️_SUGGEST_COMMITS-185FA5?style=for-the-badge"/></a><br/><sub>Rewrites bad commit messages → <code>COMMIT-SUGGESTIONS.md</code></sub></td>
+<td align="center"><a href="#-share--slack--email-ready"><img src="https://img.shields.io/badge/📧_SHARE-993556?style=for-the-badge"/></a><br/><sub>Formats standup for Slack & email → <code>SHARE.md</code></sub></td>
 </tr>
 <tr>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/🔮_PR_SUMMARY-185FA5?style=for-the-badge"/></a><br/><sub>PR description from your changes → <code>PR-SUMMARY.md</code></sub></td>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/⏰_STREAK-854F0B?style=for-the-badge"/></a><br/><sub>GitHub-style commit streak → <code>STREAK.md</code></sub></td>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/🧩_CHANGELOG-3B6D11?style=for-the-badge"/></a><br/><sub>Auto-generate changelog → <code>CHANGELOG.md</code></sub></td>
+<td align="center"><a href="#-pr-summary--auto-pr-description"><img src="https://img.shields.io/badge/🔮_PR_SUMMARY-185FA5?style=for-the-badge"/></a><br/><sub>PR description from your changes → <code>PR-SUMMARY.md</code></sub></td>
+<td align="center"><a href="#-streak-tracker--github-style-commit-streaks"><img src="https://img.shields.io/badge/⏰_STREAK-854F0B?style=for-the-badge"/></a><br/><sub>GitHub-style commit streak → <code>STREAK.md</code></sub></td>
+<td align="center"><a href="#-auto-changelog--changelogmd-generator"><img src="https://img.shields.io/badge/🧩_CHANGELOG-3B6D11?style=for-the-badge"/></a><br/><sub>Auto-generate changelog → <code>CHANGELOG.md</code></sub></td>
 </tr>
 <tr>
-<td align="center"><a href="#"><img src="https://img.shields.io/badge/🚨_BUS_FACTOR-A32D2D?style=for-the-badge"/></a><br/><sub>Single-owner file risk → <code>BUS-FACTOR.md</code></sub></td>
-<td align="center"><img src="https://img.shields.io/badge/ℹ️_HELP-5F5E5A?style=for-the-badge"/><br/><sub>Show this menu</sub></td>
+<td align="center"><a href="#-bus-factor--knowledge-risk-analysis"><img src="https://img.shields.io/badge/🚨_BUS_FACTOR-A32D2D?style=for-the-badge"/></a><br/><sub>Single-owner file risk → <code>BUS-FACTOR.md</code></sub></td>
+<td align="center"><img src="https://img.shields.io/badge/ℹ️_HELP-5F5E5A?style=for-the-badge"/><br/><sub>Show command menu</sub></td>
 <td align="center"><img src="https://img.shields.io/badge/✕_EXIT-5F5E5A?style=for-the-badge"/><br/><sub>Quit the agent</sub></td>
 </tr>
 </table>
