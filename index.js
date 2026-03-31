@@ -23,6 +23,7 @@ const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 let repoPath = process.cwd();
 let tempDir = null;
+let clonedRepoName = null;
 
 function isGitUrl(input) {
   return (
@@ -39,8 +40,8 @@ async function setupRepo(rl) {
   console.log("+---------------------------------------------------------+");
   console.log("|           git-standup-agent                             |");
   console.log("+---------------------------------------------------------+");
-  console.log("|  Enter a public GitHub repo URL to analyze it,          |");
-  console.log("|  or press Enter to use the current local repo.          |");
+  console.log("|  Enter a public GitHub repo URL to analyze it,         |");
+  console.log("|  or press Enter to use the current local repo.         |");
   console.log("+---------------------------------------------------------+\n");
 
   const input = await ask("Repo URL (or Enter to skip): ");
@@ -57,6 +58,9 @@ async function setupRepo(rl) {
     return;
   }
 
+  // Extract repo name from URL before cloning
+  clonedRepoName = input.trim().split("/").slice(-1)[0].replace(".git", "");
+
   console.log(`\nCloning ${input.trim()} ...\n`);
 
   try {
@@ -71,18 +75,19 @@ async function setupRepo(rl) {
       console.log("Falling back to current local repo.\n");
       tempDir = null;
       repoPath = process.cwd();
+      clonedRepoName = null;
       return;
     }
 
     repoPath = tempDir;
-    const repoName = input.trim().split("/").slice(-1)[0].replace(".git", "");
-    console.log(`Cloned successfully! Analyzing: ${repoName}\n`);
+    console.log(`Cloned successfully! Analyzing: ${clonedRepoName}\n`);
 
   } catch (e) {
     console.error("Clone error:", e.message);
     console.log("Falling back to current local repo.\n");
     tempDir = null;
     repoPath = process.cwd();
+    clonedRepoName = null;
   }
 }
 
@@ -140,10 +145,13 @@ function getStreakData() {
 }
 
 function getRepoInfo() {
-  const name = git("rev-parse --show-toplevel").split(/[\\/]/).pop() || "unknown";
+  // Use cloned repo name if available, otherwise get from git
+  const name = clonedRepoName || git("rev-parse --show-toplevel").split(/[\\/]/).pop() || "unknown";
   const branch = git("rev-parse --abbrev-ref HEAD") || "unknown";
   const totalCommits = git("rev-list --count HEAD") || "0";
-  const contributors = git("shortlog -sn --all | wc -l").trim() || "1";
+  // Windows-compatible contributor count
+  const contributorsRaw = git("shortlog -sn --all") || "";
+  const contributors = contributorsRaw ? contributorsRaw.split("\n").length.toString() : "1";
   return { name, branch, totalCommits, contributors };
 }
 

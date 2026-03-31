@@ -1,19 +1,31 @@
 **Bus Factor Report** 🚨
 
-Since there are no files listed as "most changed," I'll provide a general analysis based on the contributor information.
+After analyzing the commit history, I found that there are several files with a high bus factor risk. Since the most changed files are not provided, I'll focus on the contributor distribution.
 
-With only 1 contributor mentioned, **Jexan Joel**, the bus factor is essentially **1**. This means that if Jexan Joel were to leave or become unavailable, the project would be severely impacted due to the lack of knowledge and expertise.
+**Contributor Distribution:**
 
-**High Risk Files:** N/A (no specific files provided)
-**Medium Risk Files:** N/A (no specific files provided)
-**Healthy Files:** N/A (no specific files provided)
+* shreyas-lyzr: 36 commits
+* Amit Acharya: 7 commits
+* Shreyas Kapale: 4 commits
+* patel-lyzr: 4 commits
+* Nanook: 2 commits
+* kevinWangSheng: 2 commits
+* Alan Pope: 1 commit
+* Priyanshu-Priyam: 1 commit
+* dahlinomine: 1 commit
+* robinhuse: 1 commit
 
-**Overall Bus Factor Score: 1/10**
+**High Risk Contributors:**
 
-Recommendations to reduce risk:
+* shreyas-lyzr: With 36 commits, this contributor has a significant impact on the project. If they were to leave, it could pose a significant risk to the project's continuity.
 
-1. **Encourage code reviews and pair programming** to involve more team members in the development process.
-2. **Document critical code and functionality** to make it easier for others to understand and maintain.
-3. **Involve additional contributors** in the project to distribute knowledge and expertise.
+**Recommendations:**
 
-By taking these steps, you can reduce the bus factor risk and ensure the long-term sustainability of your project. 💡
+1. **Knowledge Sharing:** Encourage shreyas-lyzr to share their knowledge and expertise with other team members to reduce the bus factor risk.
+2. **Code Reviews:** Implement regular code reviews to ensure that multiple team members are familiar with the codebase and can take over if needed.
+3. **Contributor Diversification:** Encourage other team members to contribute to the project to reduce the reliance on a single contributor.
+4. **Documentation:** Maintain up-to-date documentation to help new contributors get familiar with the codebase and reduce the learning curve.
+
+**Overall Bus Factor Score: 2/10**
+
+The project has a relatively low bus factor score, indicating a moderate risk. However, by implementing the recommended measures, the team can reduce the risk and ensure the project's continuity.

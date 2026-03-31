@@ -1,37 +1,47 @@
-### Commit Suggester
+## Commit Suggester
 
-Reviewing the last 10 commit messages, several could be improved for clarity and consistency. Here are suggestions for better commit messages following the conventional commit format: `type(scope): description`.
+Reviewing the last 10 commit messages, I've identified areas for improvement and suggest the following rewritten commit messages:
 
-1. **2bbde74**
-   - ❌ Original: LICENSE
-   - ✅ Better: `chore: add LICENSE file`
-   - 💡 Why: Clearly states the addition of a LICENSE file.
+1. **Original:** `chore: bump version to 0.1.8 and update package name to @open-gitagent/gitagent`
+   **Better:** `chore: release v0.1.8 and rename package to @open-gitagent/gitagent`
+   **Why:** More descriptive and follows conventional commit format.
 
-2. **8670277**
-   - ❌ Original: Updated index.js
-   - ✅ Better: `feat(index): implement new functionality`
-   - 💡 Why: Specifies the file and gives a brief description of the change.
+2. **Original:** `chore: bump version to 0.1.8`
+   **Better:** `chore: prepare v0.1.8 release`
+   **Why:** This commit seems to be part of a larger release process. The suggested message provides more context.
 
-3. **4d3cd54**
-   - ❌ Original: Updated run.js
-   - ✅ Better: `fix(run): resolve runtime issue`
-   - 💡 Why: Indicates the file and the type of change (fix in this case).
+3. **Original:** `Update install path for npm in README`
+   **Better:** `docs: update npm installation path in README`
+   **Why:** Follows conventional commit format and specifies the type of change (docs).
 
-4. **52dd43b**
-   - ❌ Original: Updated agent.yaml
-   - ✅ Better: `chore(config): update agent configuration`
-   - 💡 Why: Clearly states the configuration update.
+4. **Original:** `docs: add regulated-industries guide (#44)`
+   **Better:** `docs: add guide for regulated industries (#44)`
+   **Why:** Minor rewording for clarity.
 
-5. **b0ba279**
-   - ❌ Original: Updated skills section
-   - ✅ Better: `docs: update skills documentation`
-   - 💡 Why: Specifies the type of update (documentation).
+5. **Original:** `feat: add Codex CLI adapter with export + import (#32)`
+   **Better:** `feat: implement Codex CLI adapter for data export and import (#32)`
+   **Why:** More descriptive and clear about the feature added.
 
-6. **94b7b7d**, **67f7c70**, **1ab7a42**, **cd548aa**, **a7c848b**
-   - ❌ Original: Updated Readme.md (multiple commits)
-   - ✅ Better (combined): `docs: comprehensive update of README`
-   - 💡 Why: Suggests combining multiple small commits into one meaningful commit for Readme updates.
+6. **Original:** `fix: use process.exitCode instead of process.exit() for proper cleanup (#49)`
+   **Better:** `fix: improve process exit handling for cleaner shutdown (#49)`
+   **Why:** Simplifies the message while maintaining the essence of the change.
 
-### Commit Quality Score: 2/10
+7. **Original:** `fix: replace execSync with execFileSync to prevent command injection (#48)`
+   **Better:** `fix: secure command execution by replacing execSync with execFileSync (#48)`
+   **Why:** Emphasizes the security aspect of the fix.
 
-The original commit messages lack specificity and do not follow the conventional commit format, making it difficult to understand the purpose of each commit without further investigation. Implementing these suggestions will significantly improve commit clarity and adherence to best practices.
+8. **Original:** `fix: use process.exitCode instead of process.exit() so runner finally blocks clean up temp files`
+   **Better:** `fix: ensure temp file cleanup on exit by using process.exitCode`
+   **Why:** Clarifies the purpose of the change.
+
+9. **Original:** `fix: replace execSync string interpolation with execFileSync to prevent command injection`
+   **Better:** `fix: mitigate command injection risk by using execFileSync`
+   **Why:** Focuses on the security benefit of the fix.
+
+10. **Original:** `feat: add Google Gemini CLI adapter (#33)`
+    **Better:** `feat: integrate Google Gemini CLI adapter for enhanced functionality (#33)`
+    **Why:** Provides more context about the feature addition.
+
+**Commit Quality Score:** 8/10
+
+The commits generally follow a good format, but some could benefit from more descriptive messages to enhance clarity and adherence to conventional commit guidelines.
