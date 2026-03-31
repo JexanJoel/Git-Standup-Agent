@@ -58,6 +58,18 @@
 
 ---
 
+## 🎬 Demo
+
+> Click the thumbnail below to watch the full demo.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+    <img src="./assets/demo-thumbnail.png" alt="Git Standup Agent - Full Demo (2 mins)" width="100%" />
+  </a>
+</p>
+
+---
+
 ## 📸 Screenshots
 
 ### 🔗 Repo Selection - Local or Any Public GitHub URL
