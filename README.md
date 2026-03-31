@@ -4,6 +4,8 @@
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
+<p><em>Point it at any repo - local or public GitHub URL - and get instant intelligence.</em></p>
+
 <br/>
 
 <!-- BADGES -->
@@ -27,7 +29,9 @@
 
 ## 🧠 What is this?
 
-`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence. No dashboards. No cloud sync. No third-party services. Just clone and run.
+`git-standup-agent` is an AI agent that **lives inside your git repository** — defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
+
+**What makes it different?** Just paste any public GitHub URL at startup and the agent clones it, analyzes it, and lets you run all 10 commands on it — without ever leaving your terminal. No dashboards. No cloud sync. No third-party services. Just clone and run.
 
 > *"Stop copying commit hashes into Slack. Let your repo speak for itself."*
 
@@ -42,13 +46,13 @@
 | `standup` | Daily standup from last 24hrs of commits | `STANDUP.md` |
 | `weekly summary` | 7-day digest grouped by type | `WEEKLY.md` |
 | `roast me` 🔥 | Brutally honest commit review | `ROAST.md` |
-| `health report` 📊 | Code health scan - TODOs, churn, debt | `HEALTH.md` |
+| `health report` 📊 | Code health scan — TODOs, churn, debt | `HEALTH.md` |
 | `suggest commits` 🎯 | Rewrites bad commit messages | `COMMIT-SUGGESTIONS.md` |
 | `share` 📧 | Formats standup for Slack & email | `SHARE.md` |
 | `pr summary` 🔮 | Summarizes your changes as a PR description | `PR-SUMMARY.md` |
 | `streak` ⏰ | Tracks your commit streak like GitHub | `STREAK.md` |
 | `changelog` 🧩 | Auto-generates `CHANGELOG.md` from all commits | `CHANGELOG.md` |
-| `bus factor` 🚨 | Identifies single-owner files - knowledge risk | `BUS-FACTOR.md` |
+| `bus factor` 🚨 | Identifies single-owner files — knowledge risk | `BUS-FACTOR.md` |
 
 </div>
 
@@ -56,9 +60,17 @@
 
 ## 📸 Screenshots
 
+### 🔗 Repo Selection — Local or Any Public GitHub URL
+
+At startup, the agent asks for a repo. Press Enter to use your local repo, or paste any public GitHub URL to analyze it instantly.
+
+<p align="center">
+  <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection" width="100%" />
+</p>
+
 ### 📋 Standup
 
-Turn your last 24 hours of commits into a clean daily standup.  
+Turn your last 24 hours of commits into a clean daily standup.
 Perfect for sharing progress without manually digging through git history.
 
 <p align="center">
@@ -67,7 +79,7 @@ Perfect for sharing progress without manually digging through git history.
 
 ### 📅 Weekly Summary
 
-Get a 7-day digest of your work grouped into readable progress summaries.  
+Get a 7-day digest of your work grouped into readable progress summaries.
 A simple way to review what actually got done across the week.
 
 <p align="center">
@@ -76,7 +88,7 @@ A simple way to review what actually got done across the week.
 
 ### 🔥 Roast Me
 
-Get a brutally honest AI review of your commit habits.  
+Get a brutally honest AI review of your commit habits.
 Fun, memorable, and perfect for showing the personality of the agent.
 
 <p align="center">
@@ -85,7 +97,7 @@ Fun, memorable, and perfect for showing the personality of the agent.
 
 ### 📊 Health Report
 
-Scan your repository for TODOs, churn, and possible tech debt signals.  
+Scan your repository for TODOs, churn, and possible tech debt signals.
 A quick repo health snapshot that turns raw code activity into useful insight.
 
 <p align="center">
@@ -94,7 +106,7 @@ A quick repo health snapshot that turns raw code activity into useful insight.
 
 ### 🔮 PR Summary
 
-Generate a polished pull request summary from your recent changes.  
+Generate a polished pull request summary from your recent changes.
 Helps you explain what changed without writing the whole PR description manually.
 
 <p align="center">
@@ -103,7 +115,7 @@ Helps you explain what changed without writing the whole PR description manually
 
 ### 🚨 Bus Factor
 
-Identify files that depend too heavily on a single contributor.  
+Identify files that depend too heavily on a single contributor.
 A strong visual feature that highlights knowledge concentration and project risk.
 
 <p align="center">
@@ -117,12 +129,12 @@ A strong visual feature that highlights knowledge concentration and project risk
 ### Prerequisites
 - Node.js 18+
 - Git
-- A free [Groq API key](https://console.groq.com) *(takes 2 minutes)*
+- A free [Groq API key](https://console.groq.com) *(takes 2 minutes, no card needed)*
 
 ### Installation
 
 ```bash
-# 1. Clone the agent into your project
+# 1. Clone the agent
 git clone https://github.com/JexanJoel/Git-Standup-Agent.git
 cd Git-Standup-Agent
 
@@ -136,30 +148,48 @@ echo "GROQ_API_KEY=your_key_here" > .env
 node index.js
 ```
 
+At startup, you'll see:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│              git-standup-agent 🤖                        │
+├─────────────────────────────────────────────────────────┤
+│  Enter a public GitHub repo URL to analyze it,          │
+│  or press Enter to use the current local repo.          │
+└─────────────────────────────────────────────────────────┘
+
+🔗 Repo URL (or Enter to skip): https://github.com/expressjs/express
+
+⏳ Cloning...
+✅ Cloned successfully! Analyzing: express
+```
+
+Then the full command menu loads with live repo stats and you're ready to go.
+
 ### Running via gitclaw SDK
- 
+
 ```bash
 # Install gitclaw
 npm install -g gitclaw
- 
+
 # Run directly with a prompt
 gitclaw --dir . --model groq:llama-3.3-70b-versatile "generate my standup for today"
 gitclaw --dir . --model groq:llama-3.3-70b-versatile "roast my recent commits"
 gitclaw --dir . --model groq:llama-3.3-70b-versatile "give me a health report"
 ```
- 
+
 ### Validate the agent spec
- 
+
 ```bash
 # Install gitagent CLI
 npm install -g @shreyaskapale/gitagent
- 
+
 # Validate
 npx @shreyaskapale/gitagent validate
 npx @shreyaskapale/gitagent info
 npx @shreyaskapale/gitagent export --format system-prompt
 ```
- 
+
 Expected output:
 ```
 ✓ agent.yaml — valid
@@ -168,7 +198,7 @@ Expected output:
 ✓ skills/ — valid
 ✓ Validation passed (0 warnings)
 ```
- 
+
 ---
 
 ### Usage
@@ -203,21 +233,25 @@ Expected output:
 > ```
 > You: standup
 > ```
+
 ---
 
 ## 🏗️ How It Works
 
 ```mermaid
 flowchart TD
+    START["🔗 Startup\nEnter GitHub URL or local path"]:::start
+
+    R1["📁 Local Repo\n(current dir)"]:::git
+    R2["🌐 Public GitHub Repo\n(auto-cloned via git clone)"]:::git
+
     A["🧠 Agent Identity"]:::identity
     A1["SOUL.md\nPersonality"]:::file
     A2["RULES.md\nConstraints"]:::file
     A3["10x SKILL.md\nCapabilities"]:::file
 
     B["⚙️ index.js\nRuntime"]:::runtime
-
-    C["📜 git log\nCommit History"]:::git
-
+    C["📜 git log\nCommit History"]:::gitlog
     D["🤖 Groq LLM\nllama-3.3-70b"]:::llm
 
     E["📄 Output Files"]:::output
@@ -226,8 +260,10 @@ flowchart TD
     E3["HEALTH.md"]:::outfile
     E4["CHANGELOG.md"]:::outfile
     E5["BUS-FACTOR.md"]:::outfile
-    E6["+ more..."]:::outfile
+    E6["+ 5 more..."]:::outfile
 
+    START --> R1 & R2
+    R1 & R2 --> C
     A1 & A2 & A3 --> A
     C --> B
     A --> B
@@ -235,19 +271,23 @@ flowchart TD
     D --> E
     E --> E1 & E2 & E3 & E4 & E5 & E6
 
+    classDef start fill:#064e3b,stroke:#10b981,color:#d1fae5
     classDef identity fill:#1e1b4b,stroke:#6366f1,color:#e0e7ff
     classDef file fill:#312e81,stroke:#818cf8,color:#c7d2fe
     classDef runtime fill:#1e3a5f,stroke:#38bdf8,color:#e0f2fe
     classDef git fill:#14532d,stroke:#4ade80,color:#dcfce7
+    classDef gitlog fill:#1a2e05,stroke:#84cc16,color:#ecfccb
     classDef llm fill:#7c2d12,stroke:#fb923c,color:#ffedd5
     classDef output fill:#1f2937,stroke:#6b7280,color:#f3f4f6
     classDef outfile fill:#111827,stroke:#374151,color:#9ca3af
 ```
 
-1. **Agent identity** is loaded from `SOUL.md`, `RULES.md`, and all `SKILL.md` files
-2. **Git context** is pulled live using `git log` for the relevant time range
-3. **Groq LLM** processes the identity + context and generates the output
-4. **Output** is printed to terminal and saved to a `.md` file automatically
+1. **At startup**, choose a local repo or paste any public GitHub URL — the agent auto-clones it
+2. **Agent identity** is loaded from `SOUL.md`, `RULES.md`, and all 10 `SKILL.md` files
+3. **Git context** is pulled live using `git log` for the relevant time range
+4. **Groq LLM** processes the identity + context and generates the output
+5. **Output** is printed to terminal and saved to a `.md` file automatically
+6. **Temp clones** are automatically cleaned up on exit
 
 ---
 
@@ -259,7 +299,7 @@ flowchart TD
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | ✅ Yes | Your Groq API key - [get one free](https://console.groq.com) |
+| `GROQ_API_KEY` | ✅ Yes | Your Groq API key — [get one free](https://console.groq.com) |
 
 </div>
 

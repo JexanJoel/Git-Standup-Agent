@@ -1,8 +1,10 @@
 import Groq from "groq-sdk";
 import { config } from "dotenv";
-import { execSync } from "child_process";
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { execSync, spawnSync } from "child_process";
+import { readFileSync, writeFileSync, existsSync, mkdtempSync, rmSync } from "fs";
 import { createInterface } from "readline";
+import { tmpdir } from "os";
+import { join } from "path";
 
 config();
 
@@ -13,86 +15,139 @@ if (!process.env.GROQ_API_KEY) {
   process.exit(1);
 }
 
-console.log("✅ API key loaded");
+console.log("✅ API key loaded\n");
 
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// ─── Git Helpers ─────────────────────────────────────────────────────────────
+// ─── Repo Setup ───────────────────────────────────────────────────────────────
+
+let repoPath = process.cwd(); // default: current repo
+let tempDir = null;           // if we cloned, store path here
+
+function isGitUrl(input) {
+  return (
+    input.startsWith("https://github.com") ||
+    input.startsWith("https://gitlab.com") ||
+    input.startsWith("https://bitbucket.org") ||
+    input.startsWith("git@")
+  );
+}
+
+async function setupRepo(rl) {
+  const ask = (q) => new Promise((resolve) => rl.question(q, resolve));
+
+  console.log("┌─────────────────────────────────────────────────────────┐");
+  console.log("│              git-standup-agent 🤖                        │");
+  console.log("├─────────────────────────────────────────────────────────┤");
+  console.log("│  Enter a public GitHub repo URL to analyze it,          │");
+  console.log("│  or press Enter to use the current local repo.          │");
+  console.log("└─────────────────────────────────────────────────────────┘\n");
+
+  const input = await ask("🔗 Repo URL (or Enter to skip): ");
+
+  if (!input.trim()) {
+    console.log("\n📁 Using current local repo...\n");
+    repoPath = process.cwd();
+    return;
+  }
+
+  if (!isGitUrl(input.trim())) {
+    console.log("\n⚠️  That doesn't look like a valid git URL. Using current repo instead.\n");
+    repoPath = process.cwd();
+    return;
+  }
+
+  console.log(`\n⏳ Cloning ${input.trim()} ...\n`);
+
+  try {
+    tempDir = mkdtempSync(join(tmpdir(), "gitagent-"));
+    const result = spawnSync("git", ["clone", "--depth=100", input.trim(), tempDir], {
+      encoding: "utf8",
+      stdio: "pipe",
+    });
+
+    if (result.status !== 0) {
+      console.error("❌ Failed to clone repo:", result.stderr);
+      console.log("📁 Falling back to current local repo.\n");
+      tempDir = null;
+      repoPath = process.cwd();
+      return;
+    }
+
+    repoPath = tempDir;
+    const repoName = input.trim().split("/").slice(-1)[0].replace(".git", "");
+    console.log(`✅ Cloned successfully! Analyzing: ${repoName}\n`);
+
+  } catch (e) {
+    console.error("❌ Clone error:", e.message);
+    console.log("📁 Falling back to current local repo.\n");
+    tempDir = null;
+    repoPath = process.cwd();
+  }
+}
+
+function cleanup() {
+  if (tempDir) {
+    try {
+      rmSync(tempDir, { recursive: true, force: true });
+      console.log("\n🧹 Cleaned up temp clone.");
+    } catch (e) {
+      // silent
+    }
+  }
+}
+
+// ─── Git Helpers ──────────────────────────────────────────────────────────────
+
+function git(cmd) {
+  try {
+    return execSync(`git -C "${repoPath}" ${cmd}`, { encoding: "utf8" }).trim();
+  } catch (e) {
+    return "";
+  }
+}
 
 function getGitLog(since = "24 hours ago", count = 20) {
-  try {
-    const result = execSync(
-      `git log --since="${since}" --pretty=format:"%h %s (%an, %ar)" --all -n ${count}`,
-      { encoding: "utf8" }
-    );
-    return result.trim() || "No commits found in this time range.";
-  } catch (e) {
-    return "Not a git repository or no commits found.";
-  }
+  const result = git(`log --since="${since}" --pretty=format:"%h %s (%an, %ar)" --all -n ${count}`);
+  return result || "No commits found in this time range.";
 }
 
 function getLastNCommits(n = 10) {
-  try {
-    const result = execSync(
-      `git log --pretty=format:"%h %s (%an, %ar)" -n ${n} --all`,
-      { encoding: "utf8" }
-    );
-    return result.trim() || "No commits found.";
-  } catch (e) {
-    return "Not a git repository or no commits found.";
-  }
+  const result = git(`log --pretty=format:"%h %s (%an, %ar)" -n ${n} --all`);
+  return result || "No commits found.";
 }
 
 function getAllCommits() {
-  try {
-    const result = execSync(
-      `git log --pretty=format:"%h %ad %s (%an)" --date=short --all`,
-      { encoding: "utf8" }
-    );
-    return result.trim() || "No commits found.";
-  } catch (e) {
-    return "No commits found.";
-  }
+  const result = git(`log --pretty=format:"%h %ad %s (%an)" --date=short --all`);
+  return result || "No commits found.";
 }
 
 function getGitStats() {
-  try {
-    const totalCommits = execSync("git rev-list --count HEAD", { encoding: "utf8" }).trim();
-    const contributors = execSync("git shortlog -sn --all", { encoding: "utf8" }).trim();
-    const recentFiles = execSync("git diff --name-only HEAD~1 HEAD", { encoding: "utf8" }).trim();
-    return { totalCommits, contributors, recentFiles };
-  } catch (e) {
-    return { totalCommits: "N/A", contributors: "N/A", recentFiles: "N/A" };
-  }
+  const totalCommits = git("rev-list --count HEAD") || "N/A";
+  const contributors = git("shortlog -sn --all") || "N/A";
+  const recentFiles = git("diff --name-only HEAD~1 HEAD") || "N/A";
+  return { totalCommits, contributors, recentFiles };
 }
 
 function getFileOwnership() {
-  try {
-    const files = execSync(
-      `git log --pretty=format: --name-only --all | sort | uniq -c | sort -rn | head -20`,
-      { encoding: "utf8" }
-    ).trim();
-    const authorsByFile = execSync(
-      `git log --pretty=format:"%an" --all --follow -- . | sort | uniq -c | sort -rn | head -20`,
-      { encoding: "utf8" }
-    ).trim();
-    return { files, authorsByFile };
-  } catch (e) {
-    return { files: "N/A", authorsByFile: "N/A" };
-  }
+  const files = git(`log --pretty=format: --name-only --all | sort | uniq -c | sort -rn | head -20`) || "N/A";
+  return { files };
 }
 
 function getStreakData() {
-  try {
-    const dates = execSync(
-      `git log --pretty=format:"%ad" --date=short --all`,
-      { encoding: "utf8" }
-    ).trim();
-    return dates || "No commit dates found.";
-  } catch (e) {
-    return "No data.";
-  }
+  const dates = git(`log --pretty=format:"%ad" --date=short --all`);
+  return dates || "No commit dates found.";
 }
+
+function getRepoInfo() {
+  const name = git("rev-parse --show-toplevel").split(/[\\/]/).pop() || "unknown";
+  const branch = git("rev-parse --abbrev-ref HEAD") || "unknown";
+  const totalCommits = git("rev-list --count HEAD") || "0";
+  const contributors = git("shortlog -sn --all | wc -l").trim() || "1";
+  return { name, branch, totalCommits, contributors };
+}
+
+// ─── Agent Identity ───────────────────────────────────────────────────────────
 
 function loadAgentIdentity() {
   try {
@@ -141,59 +196,40 @@ function buildContext(input) {
   const lower = input.toLowerCase();
 
   if (lower.includes("roast")) {
-    const commits = getLastNCommits(15);
-    return `User wants a roast of recent commits.\n\nLast 15 commits:\n${commits}`;
+    return `User wants a roast of recent commits.\n\nLast 15 commits:\n${getLastNCommits(15)}`;
   }
-
   if (lower.includes("health")) {
-    const commits = getGitLog("7 days ago", 30);
     const stats = getGitStats();
-    return `User wants a code health report.\n\nRecent commits (7 days):\n${commits}\n\nStats:\nTotal commits: ${stats.totalCommits}\nContributors:\n${stats.contributors}\nRecently changed files:\n${stats.recentFiles}`;
+    return `User wants a code health report.\n\nRecent commits (7 days):\n${getGitLog("7 days ago", 30)}\n\nStats:\nTotal commits: ${stats.totalCommits}\nContributors:\n${stats.contributors}\nRecently changed files:\n${stats.recentFiles}`;
   }
-
   if (lower.includes("suggest") || lower.includes("commit message")) {
-    const commits = getLastNCommits(10);
-    return `User wants better commit message suggestions.\n\nLast 10 commits:\n${commits}`;
+    return `User wants better commit message suggestions.\n\nLast 10 commits:\n${getLastNCommits(10)}`;
   }
-
   if (lower.includes("slack") || lower.includes("email") || lower.includes("share")) {
-    const standup = existsSync("STANDUP.md")
-      ? readFileSync("STANDUP.md", "utf8")
-      : getGitLog("24 hours ago");
+    const standup = existsSync("STANDUP.md") ? readFileSync("STANDUP.md", "utf8") : getGitLog("24 hours ago");
     return `User wants to share the standup via Slack or email.\n\nLast standup:\n${standup}`;
   }
-
   if (lower.includes("pr") || lower.includes("pull request")) {
-    const commits = getLastNCommits(10);
     const stats = getGitStats();
-    return `User wants a PR summary.\n\nRecent commits:\n${commits}\n\nChanged files:\n${stats.recentFiles}`;
+    return `User wants a PR summary.\n\nRecent commits:\n${getLastNCommits(10)}\n\nChanged files:\n${stats.recentFiles}`;
   }
-
   if (lower.includes("streak")) {
-    const dates = getStreakData();
     const stats = getGitStats();
-    return `User wants their commit streak report.\n\nAll commit dates:\n${dates}\n\nContributors:\n${stats.contributors}`;
+    return `User wants their commit streak report.\n\nAll commit dates:\n${getStreakData()}\n\nContributors:\n${stats.contributors}`;
   }
-
   if (lower.includes("changelog")) {
-    const allCommits = getAllCommits();
-    return `User wants an auto-generated changelog.\n\nAll commits:\n${allCommits}`;
+    return `User wants an auto-generated changelog.\n\nAll commits:\n${getAllCommits()}`;
   }
-
-  if (lower.includes("bus factor") || lower.includes("bus")) {
-    const ownership = getFileOwnership();
+  if (lower.includes("bus")) {
     const stats = getGitStats();
-    return `User wants a bus factor analysis.\n\nMost changed files:\n${ownership.files}\n\nContributors:\n${stats.contributors}`;
+    return `User wants a bus factor analysis.\n\nMost changed files:\n${getFileOwnership().files}\n\nContributors:\n${stats.contributors}`;
   }
-
   if (lower.includes("week")) {
-    const commits = getGitLog("7 days ago", 50);
-    return `User wants a weekly summary.\n\nLast 7 days of commits:\n${commits}`;
+    return `User wants a weekly summary.\n\nLast 7 days of commits:\n${getGitLog("7 days ago", 50)}`;
   }
 
   // default: standup
-  const commits = getGitLog("24 hours ago");
-  return `User wants a daily standup report.\n\nLast 24 hours of commits:\n${commits}`;
+  return `User wants a daily standup report.\n\nLast 24 hours of commits:\n${getGitLog("24 hours ago")}`;
 }
 
 function getSaveTarget(input) {
@@ -212,34 +248,34 @@ function getSaveTarget(input) {
 
 // ─── Help Menu ────────────────────────────────────────────────────────────────
 
-function printHelp() {
+function printHelp(repoInfo) {
   console.log(`
-┌──────────────────────────────────────────────────┐
-│            git-standup-agent 🤖                   │
-├──────────────────────────────────────────────────┤
-│  standup           → Daily standup report         │
-│  weekly summary    → 7-day activity digest        │
-│  roast me          → Brutal commit review    🔥   │
-│  health report     → Code health scan        📊   │
-│  suggest commits   → Better commit messages  🎯   │
-│  share             → Slack & email format    📧   │
-│  pr summary        → PR description          🔮   │
-│  streak            → Commit streak tracker   ⏰   │
-│  changelog         → Auto-generate changelog 🧩   │
-│  bus factor        → Knowledge risk analysis 🚨   │
-│  help              → Show this menu               │
-│  exit              → Quit                         │
-└──────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────── ┐
+│               git-standup-agent                           │
+├────────────────────────────────────────────────────────── ┤
+│  📁 Repo : ${repoInfo.name.padEnd(44)}│
+│  🌿 Branch: ${repoInfo.branch.padEnd(43)}│
+│  📝 Commits: ${repoInfo.totalCommits.padEnd(42)}│
+├────────────────────────────────────────────────────────── ┤
+│  standup           → Daily standup report                 │
+│  weekly summary    → 7-day activity digest                │
+│  roast me          → Brutal commit review                 │
+│  health report     → Code health scan                     │
+│  suggest commits   → Better commit messages               │
+│  share             → Slack & email format                 │
+│  pr summary        → PR description                       │
+│  streak            → Commit streak tracker                │
+│  changelog         → Auto-generate changelog              │
+│  bus factor        → Knowledge risk analysis              │
+│  help              → Show this menu                       │
+│  exit              → Quit                                 │
+└────────────────────────────────────────────────────────── ┘
 `);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  printHelp();
-
-  const systemPrompt = loadAgentIdentity();
-
   const rl = createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -247,19 +283,30 @@ async function main() {
 
   const ask = (q) => new Promise((resolve) => rl.question(q, resolve));
 
+  // Step 1: Ask for repo
+  await setupRepo(rl);
+
+  // Step 2: Show menu with repo info
+  const repoInfo = getRepoInfo();
+  printHelp(repoInfo);
+
+  const systemPrompt = loadAgentIdentity();
+
+  // Step 3: Command loop
   while (true) {
     const input = await ask("You: ");
 
     if (!input.trim()) continue;
 
     if (input.toLowerCase() === "exit") {
-      console.log("\nBye! 👋\n");
+      console.log("\nBye! 👋");
       rl.close();
+      cleanup();
       break;
     }
 
     if (input.toLowerCase() === "help") {
-      printHelp();
+      printHelp(repoInfo);
       continue;
     }
 
@@ -286,5 +333,6 @@ async function main() {
 
 main().catch((e) => {
   console.error("❌ Fatal error:", e.message);
+  cleanup();
   process.exit(1);
 });
