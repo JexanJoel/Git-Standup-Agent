@@ -8,21 +8,21 @@ import { join } from "path";
 
 config();
 
-console.log("🚀 Starting git-standup-agent...");
+console.log("Starting git-standup-agent...");
 
 if (!process.env.GROQ_API_KEY) {
-  console.error("❌ GROQ_API_KEY not found in .env file!");
+  console.error("ERROR: GROQ_API_KEY not found in .env file!");
   process.exit(1);
 }
 
-console.log("✅ API key loaded\n");
+console.log("API key loaded\n");
 
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// ─── Repo Setup ───────────────────────────────────────────────────────────────
+// --- Repo Setup --------------------------------------------------------------
 
-let repoPath = process.cwd(); // default: current repo
-let tempDir = null;           // if we cloned, store path here
+let repoPath = process.cwd();
+let tempDir = null;
 
 function isGitUrl(input) {
   return (
@@ -36,28 +36,28 @@ function isGitUrl(input) {
 async function setupRepo(rl) {
   const ask = (q) => new Promise((resolve) => rl.question(q, resolve));
 
-  console.log("┌─────────────────────────────────────────────────────────┐");
-  console.log("│              git-standup-agent 🤖                        │");
-  console.log("├─────────────────────────────────────────────────────────┤");
-  console.log("│  Enter a public GitHub repo URL to analyze it,          │");
-  console.log("│  or press Enter to use the current local repo.          │");
-  console.log("└─────────────────────────────────────────────────────────┘\n");
+  console.log("+---------------------------------------------------------+");
+  console.log("|           git-standup-agent                             |");
+  console.log("+---------------------------------------------------------+");
+  console.log("|  Enter a public GitHub repo URL to analyze it,          |");
+  console.log("|  or press Enter to use the current local repo.          |");
+  console.log("+---------------------------------------------------------+\n");
 
-  const input = await ask("🔗 Repo URL (or Enter to skip): ");
+  const input = await ask("Repo URL (or Enter to skip): ");
 
   if (!input.trim()) {
-    console.log("\n📁 Using current local repo...\n");
+    console.log("\nUsing current local repo...\n");
     repoPath = process.cwd();
     return;
   }
 
   if (!isGitUrl(input.trim())) {
-    console.log("\n⚠️  That doesn't look like a valid git URL. Using current repo instead.\n");
+    console.log("\nWarning: That does not look like a valid git URL. Using current repo instead.\n");
     repoPath = process.cwd();
     return;
   }
 
-  console.log(`\n⏳ Cloning ${input.trim()} ...\n`);
+  console.log(`\nCloning ${input.trim()} ...\n`);
 
   try {
     tempDir = mkdtempSync(join(tmpdir(), "gitagent-"));
@@ -67,8 +67,8 @@ async function setupRepo(rl) {
     });
 
     if (result.status !== 0) {
-      console.error("❌ Failed to clone repo:", result.stderr);
-      console.log("📁 Falling back to current local repo.\n");
+      console.error("Failed to clone repo:", result.stderr);
+      console.log("Falling back to current local repo.\n");
       tempDir = null;
       repoPath = process.cwd();
       return;
@@ -76,11 +76,11 @@ async function setupRepo(rl) {
 
     repoPath = tempDir;
     const repoName = input.trim().split("/").slice(-1)[0].replace(".git", "");
-    console.log(`✅ Cloned successfully! Analyzing: ${repoName}\n`);
+    console.log(`Cloned successfully! Analyzing: ${repoName}\n`);
 
   } catch (e) {
-    console.error("❌ Clone error:", e.message);
-    console.log("📁 Falling back to current local repo.\n");
+    console.error("Clone error:", e.message);
+    console.log("Falling back to current local repo.\n");
     tempDir = null;
     repoPath = process.cwd();
   }
@@ -90,14 +90,14 @@ function cleanup() {
   if (tempDir) {
     try {
       rmSync(tempDir, { recursive: true, force: true });
-      console.log("\n🧹 Cleaned up temp clone.");
+      console.log("\nCleaned up temp clone.");
     } catch (e) {
       // silent
     }
   }
 }
 
-// ─── Git Helpers ──────────────────────────────────────────────────────────────
+// --- Git Helpers -------------------------------------------------------------
 
 function git(cmd) {
   try {
@@ -147,7 +147,7 @@ function getRepoInfo() {
   return { name, branch, totalCommits, contributors };
 }
 
-// ─── Agent Identity ───────────────────────────────────────────────────────────
+// --- Agent Identity ----------------------------------------------------------
 
 function loadAgentIdentity() {
   try {
@@ -170,14 +170,14 @@ function loadAgentIdentity() {
       .map((p) => readFileSync(p, "utf8"))
       .join("\n\n---\n\n");
 
-    return `You are git-standup-agent — an AI agent that lives in a git repository.\n\n${soul}\n\n${rules}\n\n## Your Skills:\n\n${skills}`;
+    return `You are git-standup-agent - an AI agent that lives in a git repository.\n\n${soul}\n\n${rules}\n\n## Your Skills:\n\n${skills}`;
   } catch (e) {
-    console.error("❌ Error loading agent files:", e.message);
+    console.error("Error loading agent files:", e.message);
     process.exit(1);
   }
 }
 
-// ─── LLM Call ─────────────────────────────────────────────────────────────────
+// --- LLM Call ----------------------------------------------------------------
 
 async function askAgent(systemPrompt, userMessage) {
   const response = await client.chat.completions.create({
@@ -190,7 +190,7 @@ async function askAgent(systemPrompt, userMessage) {
   return response.choices[0].message.content;
 }
 
-// ─── Command Router ───────────────────────────────────────────────────────────
+// --- Command Router ----------------------------------------------------------
 
 function buildContext(input) {
   const lower = input.toLowerCase();
@@ -228,7 +228,6 @@ function buildContext(input) {
     return `User wants a weekly summary.\n\nLast 7 days of commits:\n${getGitLog("7 days ago", 50)}`;
   }
 
-  // default: standup
   return `User wants a daily standup report.\n\nLast 24 hours of commits:\n${getGitLog("24 hours ago")}`;
 }
 
@@ -246,34 +245,34 @@ function getSaveTarget(input) {
   return "STANDUP.md";
 }
 
-// ─── Help Menu ────────────────────────────────────────────────────────────────
+// --- Help Menu ---------------------------------------------------------------
 
 function printHelp(repoInfo) {
   console.log(`
-┌────────────────────────────────────────────────────────── ┐
-│               git-standup-agent                           │
-├────────────────────────────────────────────────────────── ┤
-│  📁 Repo : ${repoInfo.name.padEnd(44)}│
-│  🌿 Branch: ${repoInfo.branch.padEnd(43)}│
-│  📝 Commits: ${repoInfo.totalCommits.padEnd(42)}│
-├────────────────────────────────────────────────────────── ┤
-│  standup           → Daily standup report                 │
-│  weekly summary    → 7-day activity digest                │
-│  roast me          → Brutal commit review                 │
-│  health report     → Code health scan                     │
-│  suggest commits   → Better commit messages               │
-│  share             → Slack & email format                 │
-│  pr summary        → PR description                       │
-│  streak            → Commit streak tracker                │
-│  changelog         → Auto-generate changelog              │
-│  bus factor        → Knowledge risk analysis              │
-│  help              → Show this menu                       │
-│  exit              → Quit                                 │
-└────────────────────────────────────────────────────────── ┘
++----------------------------------------------------------+
+|              git-standup-agent                           |
++----------------------------------------------------------+
+|  Repo    : ${repoInfo.name.padEnd(44)}|
+|  Branch  : ${repoInfo.branch.padEnd(44)}|
+|  Commits : ${repoInfo.totalCommits.padEnd(44)}|
++----------------------------------------------------------+
+|  standup           -> Daily standup report               |
+|  weekly summary    -> 7-day activity digest              |
+|  roast me          -> Brutal commit review               |
+|  health report     -> Code health scan                   |
+|  suggest commits   -> Better commit messages             |
+|  share             -> Slack & email format               |
+|  pr summary        -> PR description                     |
+|  streak            -> Commit streak tracker              |
+|  changelog         -> Auto-generate changelog            |
+|  bus factor        -> Knowledge risk analysis            |
+|  help              -> Show this menu                     |
+|  exit              -> Quit                               |
++----------------------------------------------------------+
 `);
 }
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
+// --- Main --------------------------------------------------------------------
 
 async function main() {
   const rl = createInterface({
@@ -283,23 +282,20 @@ async function main() {
 
   const ask = (q) => new Promise((resolve) => rl.question(q, resolve));
 
-  // Step 1: Ask for repo
   await setupRepo(rl);
 
-  // Step 2: Show menu with repo info
   const repoInfo = getRepoInfo();
   printHelp(repoInfo);
 
   const systemPrompt = loadAgentIdentity();
 
-  // Step 3: Command loop
   while (true) {
     const input = await ask("You: ");
 
     if (!input.trim()) continue;
 
     if (input.toLowerCase() === "exit") {
-      console.log("\nBye! 👋");
+      console.log("\nBye!");
       rl.close();
       cleanup();
       break;
@@ -313,26 +309,26 @@ async function main() {
     const context = buildContext(input);
     const userMessage = `${input}\n\n${context}`;
 
-    console.log("\n⏳ Thinking...\n");
+    console.log("\nThinking...\n");
 
     try {
       const reply = await askAgent(systemPrompt, userMessage);
-      console.log("🤖 Agent:\n");
+      console.log("Agent:\n");
       console.log(reply);
       console.log("\n");
 
       const file = getSaveTarget(input);
       writeFileSync(file, reply, "utf8");
-      console.log(`✅ Saved to ${file}\n`);
+      console.log(`Saved to ${file}\n`);
 
     } catch (err) {
-      console.error("❌ API Error:", err.message);
+      console.error("API Error:", err.message);
     }
   }
 }
 
 main().catch((e) => {
-  console.error("❌ Fatal error:", e.message);
+  console.error("Fatal error:", e.message);
   cleanup();
   process.exit(1);
 });
