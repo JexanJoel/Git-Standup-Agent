@@ -1,47 +1,57 @@
-## Commit Suggester
+# Commit Suggester
 
-Reviewing the last 10 commit messages, I've identified areas for improvement and suggest the following rewritten commit messages:
+Reviewing the last 10 commit messages, I've identified some areas for improvement and suggested better conventional commit rewrites.
 
-1. **Original:** `chore: bump version to 0.1.8 and update package name to @open-gitagent/gitagent`
-   **Better:** `chore: release v0.1.8 and rename package to @open-gitagent/gitagent`
-   **Why:** More descriptive and follows conventional commit format.
+* 24ed359: 
+  ❌ Original: chore: bump version to 0.1.8 and update package name to @open-gitagent/gitagent
+  ✅ Better: chore(@open-gitagent/gitagent): update package name and bump version to 0.1.8
+  💡 Why: Added scope to specify the package being updated
 
-2. **Original:** `chore: bump version to 0.1.8`
-   **Better:** `chore: prepare v0.1.8 release`
-   **Why:** This commit seems to be part of a larger release process. The suggested message provides more context.
+* c141ac1: 
+  ❌ Original: chore: bump version to 0.1.8
+  ✅ Better: chore: bump version to 0.1.8 (pre-release)
+  💡 Why: Added context to indicate this is a pre-release version bump
 
-3. **Original:** `Update install path for npm in README`
-   **Better:** `docs: update npm installation path in README`
-   **Why:** Follows conventional commit format and specifies the type of change (docs).
+* 5533b98: 
+  ❌ Original: Update install path for npm in README
+  ✅ Better: docs: update npm install path in README
+  💡 Why: Changed type to 'docs' to reflect the update is to documentation
 
-4. **Original:** `docs: add regulated-industries guide (#44)`
-   **Better:** `docs: add guide for regulated industries (#44)`
-   **Why:** Minor rewording for clarity.
+* 618b46d: 
+  ❌ Original: docs: add regulated-industries guide (#44)
+  ✅ Better: docs: add guide for regulated industries (#44)
+  💡 Why: Reworded for clarity and readability
 
-5. **Original:** `feat: add Codex CLI adapter with export + import (#32)`
-   **Better:** `feat: implement Codex CLI adapter for data export and import (#32)`
-   **Why:** More descriptive and clear about the feature added.
+* 333e1db: 
+  ❌ Original: feat: add Codex CLI adapter with export + import (#32)
+  ✅ Better: feat: add Codex CLI adapter for export and import functionality (#32)
+  💡 Why: Expanded description for better understanding
 
-6. **Original:** `fix: use process.exitCode instead of process.exit() for proper cleanup (#49)`
-   **Better:** `fix: improve process exit handling for cleaner shutdown (#49)`
-   **Why:** Simplifies the message while maintaining the essence of the change.
+* fa163ef: 
+  ❌ Original: fix: use process.exitCode instead of process.exit() for proper cleanup (#49)
+  ✅ Better: fix: replace process.exit() with process.exitCode for cleaner shutdown (#49)
+  💡 Why: Changed wording for better clarity on the fix
 
-7. **Original:** `fix: replace execSync with execFileSync to prevent command injection (#48)`
-   **Better:** `fix: secure command execution by replacing execSync with execFileSync (#48)`
-   **Why:** Emphasizes the security aspect of the fix.
+* bf3a363: 
+  ❌ Original: fix: replace execSync with execFileSync to prevent command injection (#48)
+  ✅ Better: fix: mitigate command injection by replacing execSync with execFileSync (#48)
+  💡 Why: Emphasized the security aspect of the fix
 
-8. **Original:** `fix: use process.exitCode instead of process.exit() so runner finally blocks clean up temp files`
-   **Better:** `fix: ensure temp file cleanup on exit by using process.exitCode`
-   **Why:** Clarifies the purpose of the change.
+* 40c19a2: 
+  ❌ Original: fix: use process.exitCode instead of process.exit() so runner finally blocks clean up temp files
+  ✅ Better: fix: use process.exitCode for proper cleanup and temp file removal
+  💡 Why: Simplified the description while maintaining the essential information
 
-9. **Original:** `fix: replace execSync string interpolation with execFileSync to prevent command injection`
-   **Better:** `fix: mitigate command injection risk by using execFileSync`
-   **Why:** Focuses on the security benefit of the fix.
+* 2058a95: 
+  ❌ Original: fix: replace execSync string interpolation with execFileSync to prevent command injection
+  ✅ Better: fix: prevent command injection by using execFileSync instead of execSync
+  💡 Why: Made the description more concise and focused on the solution
 
-10. **Original:** `feat: add Google Gemini CLI adapter (#33)`
-    **Better:** `feat: integrate Google Gemini CLI adapter for enhanced functionality (#33)`
-    **Why:** Provides more context about the feature addition.
+* 01f72c7: 
+  ❌ Original: feat: add Google Gemini CLI adapter (#33)
+  ✅ Better: feat: add Google Gemini CLI adapter for simplified integration (#33)
+  💡 Why: Added context to highlight the benefit of the new feature
 
-**Commit Quality Score:** 8/10
+**Commit Quality Score: 7/10**
 
-The commits generally follow a good format, but some could benefit from more descriptive messages to enhance clarity and adherence to conventional commit guidelines.
+Most commit messages follow the conventional commit format, but some could be improved with more descriptive and concise language. Additionally, some commits could benefit from more specific scopes or clearer descriptions of the changes made.
