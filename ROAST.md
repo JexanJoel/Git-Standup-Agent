@@ -1,12 +1,15 @@
 **Roast Report** 🔥
 
-Let's get started with the roasting:
+Let's get roasting! 🍗
 
-* `24ed359` — You bumped the version twice in a row? What's going on here? It looks like you forgot to update the package name in the first bump. Get your versioning together! 💸
-* `c141ac1` — See above. This commit is redundant and should be squashed. 
-* `fdd07a3` — The commit message is unclear. What does `feat(adapters)` mean? Use the conventional commit format: `feat: add Codex CLI adapter — export + import`. Be specific! 
-* `c510a69` — This commit is very similar to `fdd07a3`. Are you duplicating work? Use `git cherry-pick` or `git rebase` to avoid duplication. 
-* `e2a9050` and `22f74c5` — These merge commits have unclear messages. What's being merged and why? Use `git merge` with a clear message: `Merge pull request #2 from AJAmit17/merge-fix to resolve conflicts`. 
-* `40c19a2` and `fa163ef` — These commits have similar messages. Are you fixing the same issue twice? Consider squashing these commits to avoid duplication. 
+* `24ed359` — You bumped the version to 0.1.8 twice in a row? 🤔 Why not just do it once and save us the trouble? 😂 What to do instead: Make sure to review your commits before pushing them.
+* `c141ac1` — See above. This commit is redundant and should be squashed. What to do instead: Use `git rebase -i` to squash redundant commits.
+* `fdd07a3` — You used `feat(adapters)` instead of the conventional `feat: adapters`. 🙅‍♂️ What to do instead: Use the conventional commit format: `type(scope): description`.
+* `e2a9050` and `22f74c5` — These merge commits have vague messages. 🤔 What to do instead: Use descriptive merge commit messages that explain what's being merged and why.
+* `c510a69` and `01f72c7` — You committed the same feature twice with different messages. 🤦‍♂️ What to do instead: Make sure to review your commits before pushing them and avoid duplicating work.
+* `40c19a2` and `fa163ef` — You fixed the same issue twice. 🙄 What to do instead: Review your commits before pushing them and avoid duplicating work.
+* `2058a95` and `bf3a363` — You fixed the same issue twice again. 😩 What to do instead: Review your commits before pushing them and avoid duplicating work.
 
-Overall score: 6/10. You've got some work to do to make your commits more readable and efficient. Keep practicing, and you'll get there! 😊
+Overall score: 6/10
+
+One genuine compliment: You're actively working on the project and pushing changes, which is great! Keep it up, and let's work on improving the commit quality. 💪
