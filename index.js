@@ -40,8 +40,8 @@ async function setupRepo(rl) {
   console.log("+---------------------------------------------------------+");
   console.log("|           git-standup-agent                             |");
   console.log("+---------------------------------------------------------+");
-  console.log("|  Enter a public GitHub repo URL to analyze it,         |");
-  console.log("|  or press Enter to use the current local repo.         |");
+  console.log("|  Enter a public GitHub repo URL to analyze it,          |");
+  console.log("|  or press Enter to use the current local repo.          |");
   console.log("+---------------------------------------------------------+\n");
 
   const input = await ask("Repo URL (or Enter to skip): ");
@@ -260,9 +260,9 @@ function printHelp(repoInfo) {
 +----------------------------------------------------------+
 |              git-standup-agent                           |
 +----------------------------------------------------------+
-|  Repo    : ${repoInfo.name.padEnd(44)}|
-|  Branch  : ${repoInfo.branch.padEnd(44)}|
-|  Commits : ${repoInfo.totalCommits.padEnd(44)}|
+|  Repo    : ${repoInfo.name.padEnd(44)} |
+|  Branch  : ${repoInfo.branch.padEnd(44)} |
+|  Commits : ${repoInfo.totalCommits.padEnd(44)} |
 +----------------------------------------------------------+
 |  standup           -> Daily standup report               |
 |  weekly summary    -> 7-day activity digest              |
