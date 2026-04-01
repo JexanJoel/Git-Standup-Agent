@@ -63,7 +63,7 @@
 > Click the thumbnail below to watch the full demo.
 
 <p align="center">
-  <a href="https://youtu.be/zrKjw2SK0kQ">
+  <a href="https://youtu.be/bzZDHZADn84">
     <img src="./assets/demo-thumbnail.png" alt="Git Standup Agent - Full Demo (2 mins)" width="100%" />
   </a>
 </p>
