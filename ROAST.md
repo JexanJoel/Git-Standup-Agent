@@ -1,15 +1,15 @@
 **Roast Report** 🔥
 
-Let's get roasting! 🍗
+Let's get roasting:
 
-* `24ed359` — You bumped the version to 0.1.8 twice in a row? 🤔 Why not just do it once and save us the trouble? 😂 What to do instead: Make sure to review your commits before pushing them.
-* `c141ac1` — See above. This commit is redundant and should be squashed. What to do instead: Use `git rebase -i` to squash redundant commits.
-* `fdd07a3` — You used `feat(adapters)` instead of the conventional `feat: adapters`. 🙅‍♂️ What to do instead: Use the conventional commit format: `type(scope): description`.
-* `e2a9050` and `22f74c5` — These merge commits have vague messages. 🤔 What to do instead: Use descriptive merge commit messages that explain what's being merged and why.
-* `c510a69` and `01f72c7` — You committed the same feature twice with different messages. 🤦‍♂️ What to do instead: Make sure to review your commits before pushing them and avoid duplicating work.
-* `40c19a2` and `fa163ef` — You fixed the same issue twice. 🙄 What to do instead: Review your commits before pushing them and avoid duplicating work.
-* `2058a95` and `bf3a363` — You fixed the same issue twice again. 😩 What to do instead: Review your commits before pushing them and avoid duplicating work.
+* `2c2bad7` and `a8d561d` — Duplicate commits with the same message? Come on, @shreyas-lyzr! Use `git commit --amend` or `git rebase -i` to squash those duplicates. What to do instead: Merge the changes into one commit and use a descriptive message.
+* `cf029df` — `fix(issue,53)`? What's with the weird commit message format? Stick to conventional commits, folks! ✅ Better: `fix: resolve duplicate requiredOption and broken switch fallthrough (#53)`.
+* `c141ac1` and `24ed359` — Another duplicate commit pair! @shreyas-lyzr, you're making this too easy. What to do instead: Use `git commit --amend` to update the previous commit.
+* `5533b98` — "Update install path for npm in README" is a bit vague. What changed? Why? ✅ Better: `docs: update npm install path in README to reflect new package structure`.
+* `fa163ef`, `bf3a363`, `40c19a2`, and `2058a95` — Multiple commits fixing similar issues. Maybe it's time to refactor the code to prevent these problems in the future? 🤔
+* `01f72c7` and `c510a69` — Duplicate commits again! @shreyas-lyzr, please use `git commit --amend` or `git rebase -i` to squash these.
+* `fdd07a3` — `feat(adapters): Codex CLI adapter — export + import (#32)` is a bit hard to read. Stick to conventional commits, @Nanook! ✅ Better: `feat: add Codex CLI adapter with export and import (#32)`.
 
-Overall score: 6/10
+Overall Score: 4/10
 
-One genuine compliment: You're actively working on the project and pushing changes, which is great! Keep it up, and let's work on improving the commit quality. 💪
+One genuine compliment: @shreyas-lyzr, you're actively working on the project and fixing issues. Keep it up, and let's work on those commit messages and duplicates! 👍

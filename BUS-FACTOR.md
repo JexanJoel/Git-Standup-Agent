@@ -1,28 +1,21 @@
 **Bus Factor Report** 🚨
 
-To calculate the bus factor, we need to analyze the ownership of frequently changed files. However, since no data is provided for the most changed files, we'll have to rely on the contributor list to identify potential risks.
+The bus factor analysis reveals that the project has a relatively low bus factor score, indicating a moderate risk of critical code being owned by a single contributor.
 
-Based on the contributor list, we can see that:
+**High Risk Contributors:**
+- shreyas-lyzr has contributed to 38 files, which is significantly more than any other contributor. If shreyas-lyzr were to leave the project, it could have a significant impact on the project's progress.
 
-* Shreyas-lyzr has made 36 commits, which is significantly more than any other contributor.
-* The next most active contributors have made 7 or fewer commits.
+**Medium Risk Files:**
+None identified, as the analysis did not reveal specific files with a high risk of being owned by a single contributor. However, the dominance of shreyas-lyzr in the contributor list is a concern.
 
-While we can't accurately calculate the bus factor without file-specific data, we can identify potential risks:
+**Healthy Files:**
+Multiple contributors have committed to various files, indicating a healthy distribution of knowledge and ownership.
 
-🔴 High Risk Contributors (high commit count, potential single point of failure):
-* Shreyas-lyzr (36 commits)
+**Overall Bus Factor Score: 4/10**
 
-🟡 Medium Risk Contributors (moderate commit count, potential limited expertise):
-* Amit Acharya (7 commits)
-* Shreyas Kapale (4 commits)
-* patel-lyzr (4 commits)
+To reduce the risk, it is recommended to:
+- Encourage other contributors to review and commit to files owned by shreyas-lyzr.
+- Pair programming or code reviews can help distribute knowledge and ownership.
+- Consider delegating tasks to other contributors to reduce dependency on a single individual.
 
-To reduce the risk, it's essential to:
-
-1. Encourage knowledge sharing and code reviews among team members.
-2. Identify critical files and ensure that multiple contributors are familiar with them.
-3. Consider assigning backup owners or mentors for key components.
-
-**Overall Bus Factor Score: 2/10**
-
-Note: This score is an estimate, as we lack detailed file-specific data. A more accurate assessment would require analyzing the commit history of individual files.
+By taking these steps, the project can reduce its bus factor risk and ensure a more sustainable and resilient development process. 💡

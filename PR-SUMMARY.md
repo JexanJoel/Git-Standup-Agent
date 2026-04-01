@@ -1,17 +1,18 @@
 **PR Summary** 🔮
 
 ## What changed
-This PR updates the package version to 0.1.8 and changes the package name to `@open-gitagent/gitagent`. It also includes several bug fixes, including replacing `execSync` with `execFileSync` to prevent command injection, and using `process.exitCode` instead of `process.exit()` for proper cleanup. Additionally, the PR adds two new CLI adapters: Codex and Google Gemini, and updates the README with the correct install path for npm.
+This PR resolves issues with duplicate required options and broken switch fallthrough in the export and import commands. It also updates the package version to 0.1.8.
 
 ## Why it changed
-The package version was updated to reflect new features and bug fixes. The package name change is likely to follow a new naming convention. The bug fixes were necessary to prevent command injection and ensure proper cleanup. The new CLI adapters were added to expand the functionality of the package.
+The changes were necessary to fix bugs and improve the overall stability of the export and import functionality. Additionally, the version bump is part of regular maintenance to keep the package up-to-date.
 
 ## Files affected
-The following files were changed:
-* `package.json`
+The following files were modified:
+* `src/commands/export.ts`
+* `src/commands/import.ts`
 
 ## Risks / Review focus
-Reviewers should check that the package version and name changes do not break any existing dependencies or scripts. They should also verify that the bug fixes do not introduce any new issues and that the new CLI adapters work as expected.
+Reviewers should check that the fixes for duplicate required options and switch fallthrough are correctly implemented and do not introduce any new issues. Additionally, verify that the version bump and package name update do not cause any compatibility problems.
 
 ## Suggested PR title
-`Update package version and name, add new CLI adapters, and fix security vulnerabilities`
+Fix export and import commands, bump version to 0.1.8
