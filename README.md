@@ -37,6 +37,24 @@
 
 ---
 
+---
+
+## 📚 Table of Contents
+
+- [What is this?](#-what-is-this)
+- [Features](#-features)
+- [Demo](#-demo)
+- [Screenshots](#-screenshots)
+- [Quick Start](#-quick-start)
+- [Commands](#-commands)
+- [How It Works](#-how-it-works)
+- [Configuration](#-configuration)
+- [Built With](#-built-with)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
 ## ✨ Features
 
 <div align="center">
