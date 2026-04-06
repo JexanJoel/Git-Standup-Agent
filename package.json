@@ -4,6 +4,9 @@
   "description": "An AI agent that lives inside your git repo and generates daily standups, weekly summaries, repo health reports, and more.",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "git-standup": "./index.js"
+  },
   "scripts": {
     "start": "node index.js",
     "demo": "node index.js",
