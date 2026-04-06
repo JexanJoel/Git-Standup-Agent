@@ -1,5 +1,5 @@
 {
-  "name": "git-standup-agent",
+  "name": "git-historian-cli",
   "version": "1.0.0",
   "description": "An AI agent that lives inside your git repo and generates daily standups, weekly summaries, repo health reports, and more.",
   "main": "index.js",
