@@ -7,19 +7,21 @@ allowed-tools: Bash Read Write
 # Share Output
 
 ## Instructions
+Reformat last standup for Slack and Email.
 
-Take the last generated standup and reformat it for sharing.
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-For Slack format:
-- Use emoji bullets
-- Keep under 10 lines
-- Add @here at top if blockers exist
-- Use *bold* for section headers (Slack markdown)
+1. **Dashboard: Export Console** 📧
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ STATUS: [ READY TO SHIP ]                                │`
 
-For Email format:
-- Professional tone
-- Subject line suggestion at top
-- Clean bullet points
-- Sign off with team name
+2. **Section: Slack Block**
+   - Inside a 60-character box for visual separation.
 
-Always output BOTH formats...
+3. **Section: Email Block**
+   - Inside a 60-character box for visual separation.
+
+4. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

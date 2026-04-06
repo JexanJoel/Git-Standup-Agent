@@ -1,26 +1,27 @@
 ---
 name: pr-summary
-description: "Summarizes what a PR or recent batch of commits does in plain English for reviewers"
+description: "Summarizes your changes as a PR description"
 allowed-tools: Bash Read Write
 ---
 
 # PR Summary
 
 ## Instructions
+Analyze commits and changed files to generate a PR description.
 
-Look at the recent commits and generate a clear PR description that a non-technical person could understand...
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Include:
-- What changed and why
-- Files affected
-- Type of change (feature/bugfix/refactor)
-- Any risks or things reviewers should check
+1. **Dashboard: PR Intelligence** 🔮
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ MAGNITUDE: [■■■■■■■□□□] 70% (Status: SUBSTANTIAL)        │`
 
-Format:
-**PR Summary** 🔮
+2. **Section: Overview**
+   - Use a 60-character box for the summary of changes.
 
-## What changed
-## Why it changed
-## Files affected
-## Risks / Review focus
-## Suggested PR title
+3. **Section: Impacted Area**
+   - Tables for impacted areas and risk level (`[ WARNING ]`, etc.).
+
+4. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

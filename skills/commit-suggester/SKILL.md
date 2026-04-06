@@ -7,15 +7,19 @@ allowed-tools: Bash Read Write
 # Commit Suggester
 
 ## Instructions
+Review last 10 messages and suggest conventional commit rewrites.
 
-Review the last 10 commit messages. For any that are vague, unclear, or don't follow conventional commits format, suggest a rewrite...
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Conventional commit format: type(scope): description
-Types: feat, fix, chore, docs, refactor, test, style, perf
+1. **Dashboard: Message Refinement** 🎯
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ QUALITY: [■■■■■■■■□□] 80% (Status: IMPROVABLE)           │`
 
-For each bad message show:
-❌ Original: [original message]
-✅ Better: [your suggested rewrite]
-💡 Why: [one line explanation]
+2. **Section: The Refinement Table**
+   - A box-framed table comparing original vs rewrite.
+   - Headers: `│ Type | Original | Rewrite | Status │`.
 
-End with a Commit Quality Score: X/10
+3. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

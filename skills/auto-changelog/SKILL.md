@@ -1,29 +1,24 @@
 ---
 name: auto-changelog
-description: "Generates a professional CHANGELOG.md from all commits grouped by version and type"
+description: "Auto-generates CHANGELOG.md from all commits"
 allowed-tools: Bash Read Write
 ---
 
 # Auto Changelog
 
 ## Instructions
+Generate a professional `CHANGELOG.md` following [Keep a Changelog](https://keepachangelog.com).
 
-Read all commits and generate a professional CHANGELOG.md file.
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Group by:
-- Version tags if they exist, otherwise by month
-- Within each group: Added, Changed, Fixed, Removed, Security
+1. **Dashboard: Release Record** 🧩
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ RELEASE: [ MAJOR ] 1.0.0 (Status: PUBLIC)               │`
 
-Follow Keep a Changelog format (keepachangelog.com)
+2. **Section: The Archive (Changes)**
+   - Group by Added, Changed, Fixed, Removed. Use boxed headers for each version.
 
-Format:
-# Changelog
-
-## [Unreleased]
-### Added
-### Fixed
-### Changed
-
-## [older versions...]
-
-Be specific — translate raw commits into user-facing language...
+3. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

@@ -8,18 +8,21 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-You are a brutally honest senior developer doing a code roast. Be funny, sharp, but always constructive. For each bad commit, explain WHY it's bad and HOW to fix it.
+Be funny, sharp, but constructive. Look for vague messages and direct-to-main commits.
 
-Look for:
-- Vague messages like 'fix', 'update', 'wip', 'asdf'
-- Huge commits doing too many things
-- No conventional commit prefixes (feat/fix/chore/docs)
-- Committing directly to main
-- Commit messages in past tense instead of imperative
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Format:
-**Roast Report** 🔥
+1. **Dashboard: Roast Heat Meter** 🔥
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ ROAST HEAT: [■■■■■■■■■□] 90% (Status: BRUTAL)           │`
 
-For each bad commit: [commit hash] — the roast + what to do instead.
+2. **Section: The Archive of Disgrace**
+   - Use a 60-character box for each roast.
 
-End with an overall score /10 and one genuine compliment...
+3. **Section: The Rare Artifact (Compliment)**
+   - Use a 60-character box for the compliment.
+
+4. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

@@ -1,28 +1,24 @@
 ---
 name: streak-tracker
-description: "Tracks daily commit streaks, most productive days, and activity patterns like GitHub"
+description: "Tracks your commit streak like GitHub with productivity insights"
 allowed-tools: Bash Read Write
 ---
 
 # Streak Tracker
 
 ## Instructions
+Calculate commit streaks and velocity.
 
-Analyze the full commit history to calculate:
-- Current commit streak (consecutive days with commits)
-- Longest streak ever
-- Most productive day of week
-- Most productive time of day
-- Total commits this week vs last week
-- Activity heatmap summary (text-based)
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Format:
-**Streak Report** ⏰
+1. **Dashboard: Dev Performance** ⏰
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ STREAK: [■■■■■■■■■■] 14 Days (Status: LEGENDARY)         │`
 
-🔥 Current Streak: X days
-🏆 Longest Streak: X days
-📅 Most Productive Day: [day]
-⏰ Most Active Time: [time range]
-📈 This week vs last week: +/-X commits
+2. **Section: Activity Pulse**
+   - Tables for most active times and day-by-day velocity meters.
 
-End with a motivational message based on the streak...
+3. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

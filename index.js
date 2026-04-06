@@ -181,6 +181,8 @@ function loadAgentIdentity() {
   try {
     const soul = readFileSync("SOUL.md", "utf8");
     const rules = readFileSync("RULES.md", "utf8");
+    const visualSpec = existsSync("VISUAL_SPEC.md") ? readFileSync("VISUAL_SPEC.md", "utf8") : "";
+    
     const skillPaths = [
       "skills/generate-standup/SKILL.md",
       "skills/weekly-summary/SKILL.md",
@@ -200,7 +202,7 @@ function loadAgentIdentity() {
       .map((p) => readFileSync(p, "utf8"))
       .join("\n\n---\n\n");
 
-    return `You are git-standup-agent - an AI agent that lives in a git repository.\n\n${soul}\n\n${rules}\n\n## Your Skills:\n\n${skills}`;
+    return `You are The Git Historian - a sophisticated AI agent that lives in a git repository.\n\n${soul}\n\n${rules}\n\n${visualSpec}\n\n## Your Skills:\n\n${skills}`;
   } catch (e) {
     console.error("Error loading agent files:", e.message);
     process.exit(1);

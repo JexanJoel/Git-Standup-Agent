@@ -1,32 +1,24 @@
 ---
 name: ghost-hunter
-description: "Found lost work, deleted branches, and abandoned commits via git reflog."
+description: "Found lost work, deleted branches, and abandoned commits via git reflog"
 allowed-tools: Bash Read Write
 ---
 
 # Ghost Hunter
 
 ## Instructions
-
-You are a digital archeologist. Your mission is to find "ghosts" in the repository—commits that were once there but are no longer part of any branch. These typically represent work lost during a `reset --hard`, a `rebase`, or a `branch -D`.
-
-### The Hunt:
-1.  **Read the Reflog**: Look for entries like `reset: moving to...` or `branch: deleted`.
-2.  **Identify Potential Ghosts**: Find commit hashes that were the "previous HEAD" before a destructive operation.
-3.  **Analyze the Ghost Content**: If possible, summarize what that lost work was about.
+Analyze reflog for lost commits and deleted branches.
 
 ### Output Format:
-**The Ghost Hunter's Report** 👻
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-**Discovered Fragments:**
-- [commit hash] - "[message]" - Last seen [relative date]. 
-  - *Context*: Found because of a [operation, e.g., reset].
-  - *Verdict*: [Lost forever / Worth saving / Just a mistake].
+1. **Dashboard: Fragment Discovery** 👻
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ GHOSTS: [■■■■□□□□□□] 4 Found (Status: DISCOVERED)        │`
 
-**The Archive of Abandoned Ideas:**
-A bulleted list of 2-3 interesting things you found in the reflog that aren't in the main branch.
+2. **Section: Discovered Fragments**
+   - Tables or boxed entries for commits with [ RESURRECTABLE ] or [ ABANDONED ].
 
-**Historian's Wisdom:**
-"In git, nothing is ever truly gone... unless you run `gc`."
-
-Be mysterious, helpful, and technically precise.
+3. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`

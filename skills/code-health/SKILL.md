@@ -8,20 +8,21 @@ allowed-tools: Bash Read Write
 
 ## Instructions
 
-Scan the git log and recent diffs for code health signals...
+Analyze code health signals like churn, reverts, and poor scoping.
 
-Look for:
-- TODO and FIXME comments added in recent commits
-- Files changed repeatedly (churn) — signals unstable code
-- Very large commits (10+ files) — signals poor scoping
-- Revert commits — signals something broke
-- Dependency update commits — flag if frequent
+### Output Format:
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
 
-Format output as:
-**Code Health Report** 📊
+1. **Dashboard: Repository Vital Signs** 🏥
+   - MUST be exactly 60 characters wide.
+   - Example: `┌──────────────────────────────────────────────────────────┐`
+   - Content: `│ HEALTH: [■■■■■■■■□□] 80% (Status: VIBRANT)               │`
 
-🔴 Critical Issues
-🟡 Warnings
-🟢 Healthy Signals
+2. **Section: Diagnostics**
+   - A box-framed table with issue status (`[ CRITICAL ]`, etc.)
 
-Overall Health Score: X/10
+3. **Section: Pulse Analysis**
+   - Observations on tech debt and churn.
+
+4. **Historian's Verdict**
+   - `─── Verdict: [Your one-line insight] ───`
