@@ -7,21 +7,14 @@ allowed-tools: Bash Read Write
 # Share Output
 
 ## Instructions
-Reformat last standup for Slack and Email.
+Reformat last standup.
 
 ### Output Format:
-Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v3.0** ONLY.
 
-1. **Dashboard: Export Console** 📧
-   - MUST be exactly 60 characters wide.
-   - Example: `┌──────────────────────────────────────────────────────────┐`
-   - Content: `│ STATUS: [ READY TO SHIP ]                                │`
-
-2. **Section: Slack Block**
-   - Inside a 60-character box for visual separation.
-
-3. **Section: Email Block**
-   - Inside a 60-character box for visual separation.
-
-4. **Historian's Verdict**
+1. **Section: Slack Block**
+   - Use `[BOX]Slack Format | Slack markdown here...[/BOX]`
+2. **Section: Email Block**
+   - Use `[BOX]Email Format | Email content here...[/BOX]`
+3. **Verdict**
    - `─── Verdict: [Your one-line insight] ───`

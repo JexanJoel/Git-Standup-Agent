@@ -10,15 +10,11 @@ allowed-tools: Bash Read Write
 Calculate commit streaks and velocity.
 
 ### Output Format:
-Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v3.0** ONLY.
 
-1. **Dashboard: Dev Performance** ⏰
-   - MUST be exactly 60 characters wide.
-   - Example: `┌──────────────────────────────────────────────────────────┐`
-   - Content: `│ STREAK: [■■■■■■■■■■] 14 Days (Status: LEGENDARY)         │`
-
-2. **Section: Activity Pulse**
-   - Tables for most active times and day-by-day velocity meters.
-
-3. **Historian's Verdict**
+1. **Dashboard: Performance**
+   - Use `[BOX]Dev Performance | [BAR]Percentage | VELOCITY[/BAR][/BOX]`
+2. **Streak Counter**
+   - Use `[BOX]Streak Status | Current Streak details here...[/BOX]`
+3. **Verdict**
    - `─── Verdict: [Your one-line insight] ───`

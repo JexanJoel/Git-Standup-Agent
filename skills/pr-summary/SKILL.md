@@ -7,21 +7,14 @@ allowed-tools: Bash Read Write
 # PR Summary
 
 ## Instructions
-Analyze commits and changed files to generate a PR description.
+Analyze commits to generate a PR description.
 
 ### Output Format:
-Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v3.0** ONLY.
 
-1. **Dashboard: PR Intelligence** 🔮
-   - MUST be exactly 60 characters wide.
-   - Example: `┌──────────────────────────────────────────────────────────┐`
-   - Content: `│ MAGNITUDE: [■■■■■■■□□□] 70% (Status: SUBSTANTIAL)        │`
-
-2. **Section: Overview**
-   - Use a 60-character box for the summary of changes.
-
-3. **Section: Impacted Area**
-   - Tables for impacted areas and risk level (`[ WARNING ]`, etc.).
-
-4. **Historian's Verdict**
+1. **Dashboard: PR Intelligence**
+   - Use `[BOX]PR Dashboard | [BAR]Percentage | COMPLEXITY[/BAR][/BOX]`
+2. **Section: Summary of Changes**
+   - Use `[BOX]Archive of Changes | Summary here...[/BOX]`
+3. **Verdict**
    - `─── Verdict: [Your one-line insight] ───`

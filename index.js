@@ -311,6 +311,125 @@ function printHelp(repoInfo) {
   console.log(`${colors.cyan}└──────────────────────────────────────────────────────────┘${colors.reset}\n`);
 }
 
+// --- UI Engine -------------------------------------------------------------
+
+// Measure how wide a string actually appears in a terminal.
+// Most box-drawing and standard ASCII chars are 1 column.
+// East-Asian fullwidth / wide Unicode chars are 2 columns.
+function getDisplayWidth(str) {
+  let w = 0;
+  for (const ch of str) {
+    const code = ch.codePointAt(0);
+    // Common wide ranges: CJK, fullwidth forms, some symbols
+    if (
+      (code >= 0x1100 && code <= 0x115f) ||  // Hangul Jamo
+      (code >= 0x2e80 && code <= 0x303e) ||  // CJK Radicals
+      (code >= 0x3040 && code <= 0x9fff) ||  // CJK Unified + Kana
+      (code >= 0xac00 && code <= 0xd7af) ||  // Hangul Syllables
+      (code >= 0xf900 && code <= 0xfaff) ||  // CJK Compat
+      (code >= 0xfe30 && code <= 0xfe6f) ||  // CJK Compat Forms
+      (code >= 0xff01 && code <= 0xff60) ||  // Fullwidth Forms
+      (code >= 0xffe0 && code <= 0xffe6) ||  // Fullwidth Signs
+      (code >= 0x20000 && code <= 0x2fffd)   // CJK Extension B+
+    ) {
+      w += 2;
+    } else {
+      w += 1;
+    }
+  }
+  return w;
+}
+
+// Pad a string with spaces on the right to reach a target display width.
+function padRight(str, targetWidth) {
+  const currentWidth = getDisplayWidth(str);
+  const needed = Math.max(0, targetWidth - currentWidth);
+  return str + " ".repeat(needed);
+}
+
+function renderUI(text) {
+  let output = text;
+
+  // Step 1: Render [BAR] tags into PLAIN TEXT (no borders).
+  //         This must happen BEFORE [BOX] so boxes can wrap bars.
+  output = output.replace(/\[BAR\](.*?)\|(.*?)\[\/BAR\]/g, (match, pct, label) => {
+    return renderBar(parseInt(pct), label.trim());
+  });
+
+  // Step 2: Render [BADGE] tags into inline text.
+  output = output.replace(/\[BADGE\](.*?)\[\/BADGE\]/g, (match, label) => {
+    return `[ ${label.trim().toUpperCase()} ]`;
+  });
+
+  // Step 3: Render [BOX] tags LAST so they wrap the resolved text.
+  output = output.replace(/\[BOX\](.*?)\|(.*?)\[\/BOX\]/gs, (match, title, content) => {
+    return renderBox(title.trim(), content.trim());
+  });
+
+  return output;
+}
+
+function renderBox(title, content) {
+  const width = 60;
+  const innerWidth = width - 4; // "│ " + content + " │"
+  const top    = `┌${"─".repeat(width - 2)}┐`;
+  const bottom = `└${"─".repeat(width - 2)}┘`;
+  const divider = `├${"─".repeat(width - 2)}┤`;
+
+  const lines = [];
+  lines.push(top);
+
+  if (title) {
+    const tw = getDisplayWidth(title);
+    const leftPad = Math.max(0, Math.floor((innerWidth - tw) / 2));
+    const rightPad = Math.max(0, innerWidth - tw - leftPad);
+    lines.push(`│ ${" ".repeat(leftPad)}${title}${" ".repeat(rightPad)} │`);
+    lines.push(divider);
+  }
+
+  const rawLines = content.split("\n");
+  for (let raw of rawLines) {
+    raw = raw.trim();
+    if (!raw) continue; // skip blank lines
+
+    // Word-wrap long lines
+    if (getDisplayWidth(raw) > innerWidth) {
+      let current = "";
+      const words = raw.split(" ");
+      for (const word of words) {
+        const test = current ? current + " " + word : word;
+        if (getDisplayWidth(test) > innerWidth) {
+          if (current) {
+            lines.push(`│ ${padRight(current, innerWidth)} │`);
+          }
+          current = word;
+        } else {
+          current = test;
+        }
+      }
+      if (current) {
+        lines.push(`│ ${padRight(current, innerWidth)} │`);
+      }
+    } else {
+      lines.push(`│ ${padRight(raw, innerWidth)} │`);
+    }
+  }
+
+  lines.push(bottom);
+  return lines.join("\n");
+}
+
+// Returns PLAIN TEXT (no box borders) — the box will wrap it.
+function renderBar(pct, label) {
+  const barWidth = 10;
+  const clamped = Math.max(0, Math.min(100, isNaN(pct) ? 0 : pct));
+  const filled = Math.round((clamped / 100) * barWidth);
+  // Use single-width ASCII characters so padding math is never wrong.
+  const bar = "[" + "=".repeat(filled) + ".".repeat(barWidth - filled) + "]";
+  return `${label}: ${bar} ${clamped}%`;
+}
+
+
 // --- Main --------------------------------------------------------------------
 
 async function main() {
@@ -352,12 +471,14 @@ async function main() {
 
     try {
       const reply = await askAgent(systemPrompt, userMessage);
+      const formattedReply = renderUI(reply);
+      
       console.log(`${colors.cyan}${colors.bright}Historian:${colors.reset}\n`);
-      console.log(reply);
+      console.log(formattedReply);
       console.log("\n");
 
       const file = getSaveTarget(input);
-      writeFileSync(file, reply, "utf8");
+      writeFileSync(file, reply, "utf8"); // Save raw markdown to file
       console.log(`${colors.green}✓ Saved to ${file}${colors.reset}\n`);
 
     } catch (err) {

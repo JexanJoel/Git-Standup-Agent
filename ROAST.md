@@ -1,15 +1,15 @@
-**Roast Report** 🔥
+[BOX]ROAST HEAT | [BAR]60 | HEAT[/BAR][/BOX]
+It looks like we've got a sole contributor on our hands - @shreyas-lyzr, you're carrying the weight of this project on your shoulders. Don't get me wrong, it's impressive, but maybe it's time to share the load?
 
-Let's get roasting:
+[BOX]Disgrace List | 
+* 53e77f7: "unes" is not a valid commit type. Was it supposed to be "docs" or "feat"? 
+* a69de38, 053dd95: What's with the inconsistent naming convention for adapters? 
+* 795fa2e: That commit message is a bit of a mouthful. Try breaking it down into smaller, more manageable pieces.
+* c141ac1, 24ed359: Bumping the version twice in a row? Maybe take a step back and review the process.
+[/BOX]
 
-* `2c2bad7` and `a8d561d` — Duplicate commits with the same message? Come on, @shreyas-lyzr! Use `git commit --amend` or `git rebase -i` to squash those duplicates. What to do instead: Merge the changes into one commit and use a descriptive message.
-* `cf029df` — `fix(issue,53)`? What's with the weird commit message format? Stick to conventional commits, folks! ✅ Better: `fix: resolve duplicate requiredOption and broken switch fallthrough (#53)`.
-* `c141ac1` and `24ed359` — Another duplicate commit pair! @shreyas-lyzr, you're making this too easy. What to do instead: Use `git commit --amend` to update the previous commit.
-* `5533b98` — "Update install path for npm in README" is a bit vague. What changed? Why? ✅ Better: `docs: update npm install path in README to reflect new package structure`.
-* `fa163ef`, `bf3a363`, `40c19a2`, and `2058a95` — Multiple commits fixing similar issues. Maybe it's time to refactor the code to prevent these problems in the future? 🤔
-* `01f72c7` and `c510a69` — Duplicate commits again! @shreyas-lyzr, please use `git commit --amend` or `git rebase -i` to squash these.
-* `fdd07a3` — `feat(adapters): Codex CLI adapter — export + import (#32)` is a bit hard to read. Stick to conventional commits, @Nanook! ✅ Better: `feat: add Codex CLI adapter with export and import (#32)`.
+[BOX]Special Recognition | 
+Despite the roast, kudos to @shreyas-lyzr for consistently driving the project forward. And a shoutout to @Nilton Teixeira for contributing a fix!
+[/BOX]
 
-Overall Score: 4/10
-
-One genuine compliment: @shreyas-lyzr, you're actively working on the project and fixing issues. Keep it up, and let's work on those commit messages and duplicates! 👍
+─── Verdict: It's time to work on commit message consistency and maybe share the workload to avoid burnout. Keep pushing forward, and don't forget to take a step back to review and refine the process! ───

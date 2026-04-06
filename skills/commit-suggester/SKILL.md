@@ -7,19 +7,14 @@ allowed-tools: Bash Read Write
 # Commit Suggester
 
 ## Instructions
-Review last 10 messages and suggest conventional commit rewrites.
+Review last 10 messages and suggest rewrites.
 
 ### Output Format:
-Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v3.0** ONLY.
 
-1. **Dashboard: Message Refinement** 🎯
-   - MUST be exactly 60 characters wide.
-   - Example: `┌──────────────────────────────────────────────────────────┐`
-   - Content: `│ QUALITY: [■■■■■■■■□□] 80% (Status: IMPROVABLE)           │`
-
-2. **Section: The Refinement Table**
-   - A box-framed table comparing original vs rewrite.
-   - Headers: `│ Type | Original | Rewrite | Status │`.
-
-3. **Historian's Verdict**
+1. **Dashboard: Message Refinement**
+   - Use `[BOX]Refined Messages | Table of suggestions here...[/BOX]`
+2. **Quality Meter**
+   - Use `[BAR]Percentage | QUALITY[/BAR]`
+3. **Verdict**
    - `─── Verdict: [Your one-line insight] ───`

@@ -7,21 +7,14 @@ allowed-tools: Bash Read Write
 # Weekly Summary
 
 ## Instructions
-Summarize 7 days of activity, grouped by type.
+Summarize 7 days of activity.
 
 ### Output Format:
-Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v2.0** strictly.
+Follow the **The Historian's Visual Standard (VISUAL_SPEC.md) v3.0** ONLY.
 
-1. **Dashboard: Weekly Throughput** 📅
-   - MUST be exactly 60 characters wide.
-   - Example: `┌──────────────────────────────────────────────────────────┐`
-   - Content: `│ THROUGHPUT: [■■■■■■□□□□] Medium (24 Commits)            │`
-
-2. **Section: The Chapters (Weekly Breakdown)**
-   - Group by feature, fix, chore. Use 60-character boxes.
-
-3. **Section: Major Milestones**
-   - Use boxes for key achievements.
-
-4. **Historian's Verdict**
+1. **Section: Weekly Highlights**
+   - Use `[BOX]Weekly Chronicles | Summary of highlights here...[/BOX]`
+2. **Section: Throughput**
+   - Use `[BOX]Performance | [BAR]Percentage | THROUGHPUT[/BAR][/BOX]`
+3. **Verdict**
    - `─── Verdict: [Your one-line insight] ───`
