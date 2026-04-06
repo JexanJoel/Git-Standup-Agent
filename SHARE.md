@@ -1,17 +1,59 @@
-### For Slack:
-@here *No Updates* 
-* No commits were made in the last 24 hours.
-* The team has not pushed any changes to the repository during this time period.
-* It's a quiet day, with no updates or progress to report.
+## Step 1: Identify the key elements of the standup report that need to be shared.
+The standup report includes a "Daily Chronicles" section with updates on chores and feats, a "Performance" section with a velocity bar, and a verdict.
 
-### For Email:
-Subject: Daily Standup Report - No Updates
+## Step 2: Format the standup report for Slack sharing.
+For Slack, we need to use Slack markdown and formatting to make the report clear and readable. This involves converting the report into a Slack-compatible format.
 
-Dear Team,
+## Step 3: Format the standup report for email sharing.
+For email, the report should be in a plain text format that is easy to read, without relying on Slack-specific markdown. This means using plain text with clear headings and bullet points.
 
-There are no updates to report from the last 24 hours. No commits were made, and no changes were pushed to the repository during this time.
+## Step 4: Write the Slack-formatted standup report.
+Using Slack markdown, the report becomes:
+```
+*Daily Chronicles*
+• chore: Version bumped to 0.2.0
+• feat: LLM Wiki example agent and init template added
+*Performance*
+Velocity: 90
+*Verdict*
+Productive day with a new feature and version update
+```
 
-It's a quiet day with no progress to share. If you have any questions or concerns, please don't hesitate to reach out.
+## Step 5: Write the email-formatted standup report.
+In plain text for email, the report is:
+```
+Daily Chronicles:
+- chore: Version bumped to 0.2.0
+- feat: LLM Wiki example agent and init template added
+Performance:
+Velocity: 90
+Verdict:
+Productive day with a new feature and version update
+```
 
-Best,
-[Team Name]
+## Step 6: Apply The Historian's Visual Standard (SOP) for final formatting.
+Given the instructions for formatting, we use `[BOX]` tags for sections and `[BAR]` tags for progress bars in the final report.
+
+## Step 7: Finalize the share output.
+Combining the steps above, the final share output in the required format is:
+```
+[BOX]Slack Format | 
+*Daily Chronicles*
+• chore: Version bumped to 0.2.0
+• feat: LLM Wiki example agent and init template added
+*Performance*
+Velocity: [BAR]90 | VELOCITY[/BAR]
+*Verdict*
+Productive day with a new feature and version update
+[/BOX]
+[BOX]Email Format | 
+Daily Chronicles:
+- chore: Version bumped to 0.2.0
+- feat: LLM Wiki example agent and init template added
+Performance:
+Velocity: [BAR]90 | VELOCITY[/BAR]
+Verdict:
+Productive day with a new feature and version update
+[/BOX]
+─── Verdict: Ready to share the standup report ───
+```
