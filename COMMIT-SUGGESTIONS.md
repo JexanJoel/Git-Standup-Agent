@@ -1,57 +1,16 @@
-# Commit Suggester
+[BOX]Refined Messages | 
+* 51b1f5d: chore: update version to 0.2.0 for latest features
+* fb3c247: feat: introduce Wiki example agent with initial template for easy onboarding
+* 03b648e: feat: add support for running commands via gitclaw runner
+* a69de38: feat(adapter): implement gitclaw export adapter for data migration
+* 53e77f7: docs: add notes to hackathon.md for future reference
+* 053dd95: feat(adapter): add Kiro CLI export adapter (#46) for enhanced compatibility
+* 795fa2e: feat: enhance export functionality with extends resolution, --force flag, and parent merge (#55)
+* 0ef6b91: chore: bump version to 0.1.9 with latest bug fixes and improvements
+* 2c2bad7: fix: resolve issues with duplicate requiredOption and broken switch fallthrough (#53)
+* a8d561d: fix: resolve issues with duplicate requiredOption and broken switch fallthrough (#53)
+[/BOX]
 
-Reviewing the last 10 commit messages, I've identified some areas for improvement and suggested better conventional commit rewrites.
+[BAR]80 | QUALITY[/BAR]
 
-* 24ed359: 
-  ❌ Original: chore: bump version to 0.1.8 and update package name to @open-gitagent/gitagent
-  ✅ Better: chore(@open-gitagent/gitagent): update package name and bump version to 0.1.8
-  💡 Why: Added scope to specify the package being updated
-
-* c141ac1: 
-  ❌ Original: chore: bump version to 0.1.8
-  ✅ Better: chore: bump version to 0.1.8 (pre-release)
-  💡 Why: Added context to indicate this is a pre-release version bump
-
-* 5533b98: 
-  ❌ Original: Update install path for npm in README
-  ✅ Better: docs: update npm install path in README
-  💡 Why: Changed type to 'docs' to reflect the update is to documentation
-
-* 618b46d: 
-  ❌ Original: docs: add regulated-industries guide (#44)
-  ✅ Better: docs: add guide for regulated industries (#44)
-  💡 Why: Reworded for clarity and readability
-
-* 333e1db: 
-  ❌ Original: feat: add Codex CLI adapter with export + import (#32)
-  ✅ Better: feat: add Codex CLI adapter for export and import functionality (#32)
-  💡 Why: Expanded description for better understanding
-
-* fa163ef: 
-  ❌ Original: fix: use process.exitCode instead of process.exit() for proper cleanup (#49)
-  ✅ Better: fix: replace process.exit() with process.exitCode for cleaner shutdown (#49)
-  💡 Why: Changed wording for better clarity on the fix
-
-* bf3a363: 
-  ❌ Original: fix: replace execSync with execFileSync to prevent command injection (#48)
-  ✅ Better: fix: mitigate command injection by replacing execSync with execFileSync (#48)
-  💡 Why: Emphasized the security aspect of the fix
-
-* 40c19a2: 
-  ❌ Original: fix: use process.exitCode instead of process.exit() so runner finally blocks clean up temp files
-  ✅ Better: fix: use process.exitCode for proper cleanup and temp file removal
-  💡 Why: Simplified the description while maintaining the essential information
-
-* 2058a95: 
-  ❌ Original: fix: replace execSync string interpolation with execFileSync to prevent command injection
-  ✅ Better: fix: prevent command injection by using execFileSync instead of execSync
-  💡 Why: Made the description more concise and focused on the solution
-
-* 01f72c7: 
-  ❌ Original: feat: add Google Gemini CLI adapter (#33)
-  ✅ Better: feat: add Google Gemini CLI adapter for simplified integration (#33)
-  💡 Why: Added context to highlight the benefit of the new feature
-
-**Commit Quality Score: 7/10**
-
-Most commit messages follow the conventional commit format, but some could be improved with more descriptive and concise language. Additionally, some commits could benefit from more specific scopes or clearer descriptions of the changes made.
+─── Verdict: Improved commit messages with better descriptions and concise summaries for enhanced understanding and easier tracking of changes. ───
