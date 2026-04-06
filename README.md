@@ -100,7 +100,7 @@ At startup, the agent asks for a repo. Press Enter to use your local repo, or pa
   <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection screen" width="100%" />
 </p>
 <p align="center">
-  <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection screen" width="100%" />
+  <img src="./assets/command-select.png" alt="Git Standup Agent - Command selection screen" width="100%" />
 
 ---
 
