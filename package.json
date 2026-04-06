@@ -1,6 +1,6 @@
-{
-  "name": "git-historian",
-  "version": "1.0.0",
+﻿{
+  "name": "@jexanjoel/git-historian",
+  "version": "1.0.1",
   "description": "An AI agent that lives inside your git repo — standups, health reports, roasts, changelogs & more. Powered by Groq.",
   "main": "index.js",
   "type": "module",
@@ -38,6 +38,13 @@
   ],
   "author": "Jexan Joel",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jexanjoel/git-historian.git"
+  },
   "dependencies": {
     "dotenv": "^17.3.1",
     "groq-sdk": "^1.1.2"
