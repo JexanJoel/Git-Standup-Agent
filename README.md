@@ -45,6 +45,7 @@
 - [Features](#-features)
 - [Demo](#-demo)
 - [Screenshots](#-screenshots)
+- [Install via npm](#-install-via-npm)
 - [Quick Start](#-quick-start)
 - [Commands](#-commands)
 - [How It Works](#-how-it-works)
@@ -224,6 +225,40 @@ Identifies files that only one contributor has ever touched. Flags 🔴 high-ris
 <p align="center">
   <img src="./assets/bus-factor.png" alt="Git Standup Agent - Bus factor report" width="100%" />
 </p>
+
+---
+
+## 📦 Install via npm
+
+The Git Historian is available as a global CLI tool on npm.
+
+### Quick Install
+```bash
+npm install -g git-historian
+```
+
+### Setup & Run
+```bash
+# 1. Get a free Groq API key at https://console.groq.com
+
+# 2. Go to any git repo
+cd your-project
+
+# 3. Create a .env file with your key
+echo "GROQ_API_KEY=your_key_here" > .env
+
+# 4. Run
+git-historian
+```
+
+> No cloning needed. Install once, use in any repo.
+
+<div align="center">
+
+[![npm version](https://img.shields.io/npm/v/git-historian?style=for-the-badge&color=cb3837&logo=npm)](https://www.npmjs.com/package/git-historian)
+[![npm downloads](https://img.shields.io/npm/dt/git-historian?style=for-the-badge&color=cb3837)](https://www.npmjs.com/package/git-historian)
+
+</div>
 
 ---
 

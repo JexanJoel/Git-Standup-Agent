@@ -1,6 +1,6 @@
 {
   "name": "@JexanJoel/git-historian",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An AI agent that lives inside your git repo — standups, health reports, roasts, changelogs & more. Powered by Groq.",
   "main": "index.js",
   "type": "module",
