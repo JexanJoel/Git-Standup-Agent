@@ -1,9 +1,8 @@
-**Streak Report** 
-Current commit streak: 5 days 
-Longest streak ever: 5 days 
-Most productive day of week: Wednesday 
-Most active time: Not enough data to determine 
-Total commits this week: 17 
-Total commits last week: 23 
-
-You're on a roll with a 5-day commit streak. Keep it up to beat your personal record. Consider committing at different times to find your most productive hours. Your current streak is impressive, but there's room to improve consistency. Keep pushing forward.
+[BOX]Streak Status | Current Streak: 5 days[/BOX]
+[BOX]Dev Performance | [BAR]80 | VELOCITY[/BAR][/BOX]
+[BOX]Contributor Performance | 
+  • shreyas-lyzr: 45 commits
+  • Amit Acharya: 7 commits
+  • Shreyas Kapale: 5 commits
+[/BOX]
+─── Verdict: You're on a 5-day commit streak with a velocity of 80%, keep up the good work! ───

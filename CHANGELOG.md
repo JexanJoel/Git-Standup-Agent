@@ -1,50 +1,50 @@
-# Changelog
+[BOX]Release Manifest | 
+## v0.2.0
+### Features
+* Add LLM Wiki example agent and init template
+* Add gitclaw runner for run command
+* Add gitclaw export adapter
+* Implement extends resolution, --force flag, and parent merge in export
+* Add Kiro CLI export adapter
+* Add Codex CLI adapter with export + import
+* Add Google Gemini CLI adapter with export, run, and import
+* Add OpenClaw multi-agent workspace export
+* Add Cursor adapter with export and enhanced import
+* Add GitHub Copilot CLI adapter for export
+* Add 'gitagent registry' command — submit agents to the registry
+* Add SOD examples, DUTIES.md files, and README documentation
+* Add SOD constraints to system-prompt and claude-code adapters
+* Add SOD validation, audit reporting, and init scaffolding
+* Add segregation of duties schema, types, and spec
 
-## Unreleased
-### Added
-* Google Gemini CLI adapter for export, import, and run
-* Codex CLI adapter with export and import
-* Cursor adapter with export and enhanced import
-* OpenClaw multi-agent workspace export
-* GitHub Copilot CLI adapter for export
-* SOD examples, DUTIES.md files, and README documentation
-* Segregation of duties schema, types, and spec
-* SOD validation, audit reporting, and init scaffolding
-* 'gitagent registry' command to submit agents to the registry
-* SkillsFlow pattern to README
-* Full OpenCode adapter: export, runner, import, and auto-detection
-* Gitagent vs alternatives comparison document
-
-### Fixed
-* Use process.exitCode instead of process.exit() for proper cleanup
+### Fixes
+* Resolve duplicate requiredOption and broken switch fallthrough
 * Replace execSync with execFileSync to prevent command injection
-* Prefix hook scripts with 'hooks/' directory in Gemini adapter
-* Always prefix .sh hook scripts with 'bash hooks/' on Windows for Gemini CLI
+* Use process.exitCode instead of process.exit() for proper cleanup
 * Generate correct Claude Code hooks JSON structure
 * Address review feedback on OpenCode adapter
 * Use progressive skill disclosure in claude-code adapter
 * Auto-detect default branch when 'main' doesn't exist
-* Restore --model and --fallback-model flags in claude runner
 * Move --append-system-prompt to end of args to fix CLI parsing
+* Restore --model and --fallback-model flags in claude runner
 
-### Changed
-* Bump version to 0.1.8 and update package name to @open-gitagent/gitagent
+### Changes
+* Bump version to 0.2.0
+* Bump version to 0.1.9
+* Bump version to 0.1.8
+* Update package name to @open-gitagent/gitagent
 * Update install path for npm in README
-* Update documentation for gemini adaptor
-* Restructure directory tree with grouped categories and examples
-* Update README title to "gitagent | your repository becomes your agent"
-* Update Standard section — your repository becomes your agent
-* Move directory structure to top as "The Standard" section
-* Add all 12 pattern images to README
-* Replace logo with banner image in README
+* Add regulated-industries guide
+* Add SkillsFlow pattern to README
+* Add gitagent vs alternatives comparison document
+* Improve skill scores across all examples
 * Add logo to README
 * Add CI, templates, badges, and community infrastructure
 * Add CONTRIBUTING.md and MIT LICENSE
-* Bump version to 0.1.1
-* Add Patterns section to README
+* Refresh now re-clones instead of git pull
+* Remove --model and --fallback-model flags from claude runner
 * Scope package name to @shreyaskapale/gitagent for npm
+[/BOX]
 
-## 0.1.0
-* Initial release
-
-Note: This changelog is auto-generated from the git log and may not reflect all changes. It's recommended to review the git log for a complete history of changes.
+[BADGE]MAJOR[/BADGE]
+─── Verdict: This release includes significant features, fixes, and changes to improve the overall functionality and user experience of the gitagent. ───
