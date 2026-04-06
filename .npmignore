@@ -6,3 +6,17 @@ assets/
 .gitagent/
 *.md
 hackathon.md
+
+.env
+*.env
+node_modules/
+STANDUP.md
+ROAST.md
+HEALTH.md
+WEEKLY.md
+VIBE.md
+GHOSTS.md
+STREAK.md
+CHANGELOG.md
+*.log
+.git/

@@ -1,16 +1,27 @@
 {
-  "name": "git-historian-cli",
+  "name": "git-historian",
   "version": "1.0.0",
-  "description": "An AI agent that lives inside your git repo and generates daily standups, weekly summaries, repo health reports, and more.",
+  "description": "An AI agent that lives inside your git repo — standups, health reports, roasts, changelogs & more. Powered by Groq.",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "git-standup": "./index.js"
+    "git-historian": "index.js"
   },
+  "files": [
+    "index.js",
+    "skills/",
+    "SOUL.md",
+    "RULES.md",
+    "VISUAL_SPEC.md",
+    "README.md"
+  ],
   "scripts": {
     "start": "node index.js",
     "demo": "node index.js",
     "test": "echo \"No tests added yet\""
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "git",
@@ -20,13 +31,15 @@
     "developer-tools",
     "cli",
     "productivity",
-    "groq"
+    "groq",
+    "changelog",
+    "git-log",
+    "devtools"
   ],
   "author": "Jexan Joel",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^17.3.1",
-    "groq-sdk": "^1.1.2",
-    "openai": "^6.33.0"
+    "groq-sdk": "^1.1.2"
   }
 }
