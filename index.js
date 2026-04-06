@@ -8,16 +8,32 @@ import { join } from "path";
 
 config();
 
-console.log("Starting git-standup-agent...");
-
-if (!process.env.GROQ_API_KEY) {
-  console.error("ERROR: GROQ_API_KEY not found in .env file!");
-  process.exit(1);
-}
-
-console.log("API key loaded\n");
-
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+// --- Colors & UI -------------------------------------------------------------
+
+const colors = {
+  reset: "\x1b[0m",
+  bright: "\x1b[1m",
+  dim: "\x1b[2m",
+  blue: "\x1b[34m",
+  cyan: "\x1b[36m",
+  green: "\x1b[32m",
+  yellow: "\x1b[33m",
+  magenta: "\x1b[35m",
+  red: "\x1b[31m",
+};
+
+const header = `
+${colors.cyan}${colors.bright}
+   ______ _  __     __  __ _      __               _             
+  / ____/(_)/ /_   / / / /(_)____ / /_ ____   _____(_)____ _ ____ 
+ / / __ / // __/  / /_/ // // ___// __// __ \\ / ___// // __ \`/ __ \\
+/ /_/ // // /_   / __  // /(__  )/ /_ / /_/ // /   / // /_/ // / / /
+\\____//_/ \\__/  /_/ /_//_//____/ \\__/ \\____//_/   /_/ \\__,_//_/ /_/ 
+${colors.reset}${colors.dim}       - Your repository's silent witness and storyteller -
+${colors.reset}
+`;
 
 // --- Repo Setup --------------------------------------------------------------
 
@@ -37,14 +53,13 @@ function isGitUrl(input) {
 async function setupRepo(rl) {
   const ask = (q) => new Promise((resolve) => rl.question(q, resolve));
 
-  console.log("+---------------------------------------------------------+");
-  console.log("|           git-standup-agent                             |");
-  console.log("+---------------------------------------------------------+");
-  console.log("|  Enter a public GitHub repo URL to analyze it,          |");
-  console.log("|  or press Enter to use the current local repo.          |");
-  console.log("+---------------------------------------------------------+\n");
+  process.stdout.write(header);
+  console.log(`${colors.blue}┌─────────────────────────────────────────────────────────┐${colors.reset}`);
+  console.log(`${colors.blue}│${colors.reset}  ${colors.bright}Enter a public GitHub repo URL to analyze it,          ${colors.reset}${colors.blue}│${colors.reset}`);
+  console.log(`${colors.blue}│${colors.reset}  ${colors.bright}or press Enter to use the current local repo.          ${colors.reset}${colors.blue}│${colors.reset}`);
+  console.log(`${colors.blue}└─────────────────────────────────────────────────────────┘${colors.reset}\n`);
 
-  const input = await ask("Repo URL (or Enter to skip): ");
+  const input = await ask(`${colors.yellow}🔗 Repo URL (or Enter to skip):${colors.reset} `);
 
   if (!input.trim()) {
     console.log("\nUsing current local repo...\n");
@@ -155,6 +170,11 @@ function getRepoInfo() {
   return { name, branch, totalCommits, contributors };
 }
 
+function getReflog() {
+  const result = git(`reflog -n 50 --pretty=format:"%h %gd %gs"`);
+  return result || "No reflog entries found.";
+}
+
 // --- Agent Identity ----------------------------------------------------------
 
 function loadAgentIdentity() {
@@ -172,6 +192,8 @@ function loadAgentIdentity() {
       "skills/streak-tracker/SKILL.md",
       "skills/auto-changelog/SKILL.md",
       "skills/bus-factor/SKILL.md",
+      "skills/vibe-check/SKILL.md",
+      "skills/ghost-hunter/SKILL.md",
     ];
     const skills = skillPaths
       .filter(existsSync)
@@ -235,6 +257,12 @@ function buildContext(input) {
   if (lower.includes("week")) {
     return `User wants a weekly summary.\n\nLast 7 days of commits:\n${getGitLog("7 days ago", 50)}`;
   }
+  if (lower.includes("vibe") || lower.includes("mood") || lower.includes("sentiment")) {
+    return `User wants a vibe check (sentiment analysis).\n\nRecent commits:\n${getGitLog("7 days ago", 50)}`;
+  }
+  if (lower.includes("ghost") || lower.includes("lost") || lower.includes("reflog")) {
+    return `User wants to hunt for ghosts (lost work in reflog).\n\nGit Reflog (last 50):\n${getReflog()}`;
+  }
 
   return `User wants a daily standup report.\n\nLast 24 hours of commits:\n${getGitLog("24 hours ago")}`;
 }
@@ -250,34 +278,35 @@ function getSaveTarget(input) {
   if (lower.includes("changelog")) return "CHANGELOG.md";
   if (lower.includes("bus")) return "BUS-FACTOR.md";
   if (lower.includes("week")) return "WEEKLY.md";
+  if (lower.includes("vibe") || lower.includes("mood") || lower.includes("sentiment")) return "VIBE.md";
+  if (lower.includes("ghost") || lower.includes("lost") || lower.includes("reflog")) return "GHOSTS.md";
   return "STANDUP.md";
 }
 
 // --- Help Menu ---------------------------------------------------------------
 
 function printHelp(repoInfo) {
-  console.log(`
-+----------------------------------------------------------+
-|              git-standup-agent                           |
-+----------------------------------------------------------+
-|  Repo    : ${repoInfo.name.padEnd(44)} |
-|  Branch  : ${repoInfo.branch.padEnd(44)} |
-|  Commits : ${repoInfo.totalCommits.padEnd(44)} |
-+----------------------------------------------------------+
-|  standup           -> Daily standup report               |
-|  weekly summary    -> 7-day activity digest              |
-|  roast me          -> Brutal commit review               |
-|  health report     -> Code health scan                   |
-|  suggest commits   -> Better commit messages             |
-|  share             -> Slack & email format               |
-|  pr summary        -> PR description                     |
-|  streak            -> Commit streak tracker              |
-|  changelog         -> Auto-generate changelog            |
-|  bus factor        -> Knowledge risk analysis            |
-|  help              -> Show this menu                     |
-|  exit              -> Quit                               |
-+----------------------------------------------------------+
-`);
+  process.stdout.write(header);
+  console.log(`${colors.cyan}┌──────────────────────────────────────────────────────────┐${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.bright}Repo    :${colors.reset} ${repoInfo.name.padEnd(44)} ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.bright}Branch  :${colors.reset} ${repoInfo.branch.padEnd(44)} ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.bright}Commits :${colors.reset} ${repoInfo.totalCommits.padEnd(44)} ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}├──────────────────────────────────────────────────────────┤${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.green}standup${colors.reset}           -> Daily standup report               ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.green}weekly summary${colors.reset}    -> 7-day activity digest              ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.red}roast me${colors.reset}          -> Brutal commit review               ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.yellow}health report${colors.reset}     -> Code health scan                   ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.blue}vibe check${colors.reset}        -> Team morale & sentiment analysis   ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.magenta}ghost hunter${colors.reset}      -> Find lost work via reflog          ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  suggest commits   -> Better commit messages             ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  share             -> Slack & email format               ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  pr summary        -> PR description                     ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  streak            -> Commit streak tracker              ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  changelog         -> Auto-generate changelog            ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  bus factor        -> Knowledge risk analysis            ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.dim}help${colors.reset}              -> Show this menu                     ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}│${colors.reset}  ${colors.dim}exit${colors.reset}              -> Quit                               ${colors.cyan}│${colors.reset}`);
+  console.log(`${colors.cyan}└──────────────────────────────────────────────────────────┘${colors.reset}\n`);
 }
 
 // --- Main --------------------------------------------------------------------
@@ -317,17 +346,17 @@ async function main() {
     const context = buildContext(input);
     const userMessage = `${input}\n\n${context}`;
 
-    console.log("\nThinking...\n");
+    console.log(`\n${colors.yellow}Thinking...${colors.reset}\n`);
 
     try {
       const reply = await askAgent(systemPrompt, userMessage);
-      console.log("Agent:\n");
+      console.log(`${colors.cyan}${colors.bright}Historian:${colors.reset}\n`);
       console.log(reply);
       console.log("\n");
 
       const file = getSaveTarget(input);
       writeFileSync(file, reply, "utf8");
-      console.log(`Saved to ${file}\n`);
+      console.log(`${colors.green}✓ Saved to ${file}${colors.reset}\n`);
 
     } catch (err) {
       console.error("API Error:", err.message);

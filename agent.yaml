@@ -1,7 +1,7 @@
 spec_version: "0.1.0"
 name: git-standup-agent
-version: 0.2.0
-description: "Git-native AI agent that generates standups, roasts commits, tracks streaks, detects bus factor, and more"
+version: 0.3.0
+description: "The Git Historian: An AI agent that turns raw git history into a compelling story of progress, heart, and lost memories."
 author: "JexanJoel"
 model:
   preferred: "groq:llama-3.3-70b-versatile"
@@ -22,6 +22,8 @@ skills:
   - streak-tracker
   - auto-changelog
   - bus-factor
+  - vibe-check
+  - ghost-hunter
 tools:
   - git-log
 runtime:

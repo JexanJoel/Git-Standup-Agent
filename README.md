@@ -1,10 +1,10 @@
 <div align="center">
 
-<h1>🤖 Git Standup Agent</h1>
+<h1>🤖 The Git Historian</h1>
 
 <p><strong>Your git repo has a memory. Now it can speak.</strong></p>
 
-<p><em>Point it at any repo - local or public GitHub URL - and get instant intelligence.</em></p>
+<p><em>The Git Historian turns raw git history into a compelling story of progress, heart, and lost memories.</em></p>
 
 <br/>
 
@@ -29,9 +29,9 @@
 
 ## 🧠 What is this?
 
-`git-standup-agent` is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
+`the-git-historian` (formerly git-standup-agent) is an AI agent that **lives inside your git repository** - defined using the [gitagent open standard](https://github.com/open-gitagent/gitagent). It reads your commit history and turns raw git data into useful, human-readable intelligence.
 
-**What makes it different?** Just paste any public GitHub URL at startup and the agent clones it, analyzes it, and lets you run all 10 commands on it - without ever leaving your terminal. No dashboards. No cloud sync. No third-party services. Just clone and run.
+**What makes it different?** While others just list commits, the Historian understands the *vibe* of your team and tracks *lost thoughts* in the reflog. Just paste any public GitHub URL at startup and the agent clones it, analyzes it, and lets you run all 12 commands on it - without ever leaving your terminal.
 
 > *"Stop copying commit hashes into Slack. Let your repo speak for itself."*
 
@@ -61,6 +61,8 @@
 
 | Command | What it does | Output |
 |---|---|---|
+| `vibe check` 🧠 | Team morale & sentiment analysis | `VIBE.md` |
+| `ghost hunter` 👻 | Finds lost work via `git reflog` | `GHOSTS.md` |
 | `standup` | Daily standup from last 24hrs of commits | `STANDUP.md` |
 | `weekly summary` | 7-day digest grouped by type | `WEEKLY.md` |
 | `roast me` 🔥 | Brutally honest commit review | `ROAST.md` |
@@ -96,6 +98,26 @@ At startup, the agent asks for a repo. Press Enter to use your local repo, or pa
 
 <p align="center">
   <img src="./assets/repo-select.png" alt="Git Standup Agent - Repo selection screen" width="100%" />
+</p>
+
+---
+
+### 🧠 Vibe Check - Team Morale & Sentiment
+
+Measure the emotional heartbeat of your team. The Git Historian analyzes commit messages for frustration, excitement, and urgency, giving you a real-time sentiment score and insight into the team's' mental state.
+
+<p align="center">
+  <img src="./assets/vibe-check.png" alt="Git Historian - Vibe check output" width="100%" />
+</p>
+
+---
+
+### 👻 Ghost Hunter - Finding Lost Fragments
+
+The Git Historian deep-dives into the repository's `reflog` to find "ghosts"—commits that were lost due to hard resets, rebases, or deleted branches. Never lose a brilliant idea again.
+
+<p align="center">
+  <img src="./assets/ghost-hunter.png" alt="Git Historian - Ghost hunter output" width="100%" />
 </p>
 
 ---
