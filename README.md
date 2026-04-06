@@ -211,6 +211,9 @@ Reads your entire commit history and generates a professional `CHANGELOG.md` fol
 <p align="center">
   <img src="./assets/changelog.png" alt="Git Standup Agent - Auto changelog output" width="100%" />
 </p>
+<p align="center">
+  <img src="./assets/changelog1.png" alt="Git Standup Agent - Auto changelog output" width="100%" />
+</p>
 
 ---
 
